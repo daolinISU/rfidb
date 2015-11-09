@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use Input;
 use Schema;
+use Session;
 
 class PagesController extends Controller
 {
@@ -42,12 +43,6 @@ class PagesController extends Controller
      */
     public function carcassQuery()
     {
-
-        //        $tblName = 'carcass';
-        //        $columns = Schema::getColumnListing($tblName);
-        //
-        //        dd($columns);
-
 
         $idpig_op = $_POST["idpig_op"];
         $idpig = $_POST["idpig"];
@@ -111,8 +106,6 @@ class PagesController extends Controller
     {
         //gell all input name and value except token
         $inputs = $resuest->except("_token");
-//        dd($inputs["logic"][0]);
-//        dd($inputs);
         $table_list = ($inputs["table_list"]);
         //put table names in an array
         $tables = preg_split('/[\ \,]+/', $table_list);

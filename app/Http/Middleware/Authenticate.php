@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Session;
 
 class Authenticate
 {
@@ -34,6 +35,12 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
+        if ($request->input('status') == 0)
+        {
+            Session::flash('message', 'Your account hasn\'t been activated, please try again later.');
+            return redirect('/');
+        }
+
         if ($this->auth->guest()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);

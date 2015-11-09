@@ -24,7 +24,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel 5: Using The Authentication Facade</title>
+    <title>RFI Database</title>
 
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -49,6 +49,10 @@
     <![endif]-->
 </head>
 <body>
+@if (Session::has('message'))
+    <div class="alert alert-info">{{ Session::get('message') }}</div>
+@endif
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
