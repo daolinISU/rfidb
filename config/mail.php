@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'daolinch@gmail.com', 'name' => 'RFI database'],
 
     /*
     |--------------------------------------------------------------------------

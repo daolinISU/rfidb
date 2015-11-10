@@ -31,3 +31,20 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+Route::get('sendemail', function () {
+
+    $data = array(
+        'code' => "some_code",
+    );
+
+    Mail::send('email.verify', $data, function ($message) {
+
+        $message->from('daolinch@gmail.com', 'Learning Laravel');
+
+        $message->to('dlcheng@iastate.edu')->subject('Learning Laravel test email');
+
+    });
+
+    return "Your email has been sent successfully";
+
+});
