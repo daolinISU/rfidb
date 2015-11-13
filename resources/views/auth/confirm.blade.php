@@ -8,10 +8,10 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Registration finished</div>
+                    <div class="panel-heading">Email confirmed</div>
                     <div class="panel-body">
-                        Thank you for resisting your email. We have sent an confirmation email to your email address.</br>
-                        Please check your email inbox. Thank you.
+                        Thank you. Your email address has been confirmed. Our administrator will process your request soon.
+                        You will receive an email as soon as you have been approved.
                     </div>
                 </div>
             </div>

@@ -4,27 +4,15 @@
     <meta charset="utf-8">
 </head>
 <body>
-<h2>Email Content</h2>
+<h2>Please verify Your Email Address</h2>
 
 <div>
-    {{ $code }}<br>
+    Thank you for registering your email.
+    Please follow the link below to verify your email address or copy and paste it into your browser's address bar.
+    {{ URL::to('register/verify/' . $code) }}.<br/>
+    You received this e-mail because this email address was entered into an activation screen on our website.
+    Please ignore this message if you think you should not have received this e-mail.
 
-    {{--{{!! $code !!}}<br>--}}
-    {{--{{!! $code }}<br>--}}
-    {{--{{! $code !}}<br>--}}
-    {{--{{! $code }}<br>--}}
-
-    {{--{!! $code !!}<br>--}}
-    {{--{!! $code }<br>--}}
-    {{--{! $code !}<br>--}}
-    {{--{! $code }<br>--}}
-
-    {{--{!!$data['code']}<br>--}}
-    {{--{!!$data["code"]}<br>--}}
-    <?php echo $code ?><br>
-    Thanks for creating an account with the verification demo app.
-    Please follow the link below to verify your email address
-    {{ URL::to('register/verify/'.$code) }}.<br/>
 
 </div>
 

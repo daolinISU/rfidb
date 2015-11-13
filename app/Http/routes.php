@@ -31,6 +31,29 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+Route::get('register/verify/{activation_ode}', 'Auth\AuthController@confirm');
+
+
+
+Route::get('approval', function(){
+    $data = array(
+        'id' => $user->id,
+        'email' => $user->email,
+        'first_name' => $user->first_name,
+        'last_name' => $user->last_name,
+        'organization' => $user->organization,
+        'reason' => $user->reason,
+    );
+
+
+    //send email to administrator
+    Mail::send('email.request', $data, function($message) use (&$user) {
+        $message->to('dlcheng@iastate.edu', "RFIDB Administrator")
+            ->subject('RFIDB: Account registration request');
+    });
+    return "new account has be actovated";
+});
+
 Route::get('sendemail', function () {
 
     $data = array(

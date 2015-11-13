@@ -77,5 +77,44 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
+    public function confirm($activation_code)
+    {
+        if( ! $activation_code)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user = User::where('activation_code', $activation_code)->first();
+
+        if ( ! $user)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user->activation_code = "";
+        $user->save();
+
+
+        $data = array(
+            'id' => $user->id,
+            'email' => $user->email,
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'organization' => $user->organization,
+            'reason' => $user->reason,
+        );
+
+
+        //send email to administrator
+        Mail::send('email.request', $data, function($message) use (&$user) {
+            $message->to('dlcheng@iastate.edu', "RFIDB Administrator")
+                ->subject('RFIDB: Account registration request');
+        });
+
+
+        return view('Auth/confirm');
+    }
+
+
 
 }

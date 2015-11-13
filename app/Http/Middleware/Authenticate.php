@@ -35,12 +35,6 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if ($request->input('status') == 0)
-        {
-            Session::flash('message', 'Your account hasn\'t been activated, please try again later.');
-            return redirect('/');
-        }
-
         if ($this->auth->guest()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
@@ -48,6 +42,17 @@ class Authenticate
                 return redirect()->guest('auth/login');
             }
         }
+
+        if ($this->auth->user()->activation_code !== "") {
+            Session::flash('message', 'Your email address hasn\'t been confirmed, please check your activation email.');
+            return redirect('/');
+        }
+
+        if ($this->auth->user()->status === 0) {
+            Session::flash('message', 'Your account hasn\'t been activated, please try again later.');
+            return redirect('/');
+        }
+
 
         return $next($request);
     }
