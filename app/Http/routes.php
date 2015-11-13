@@ -37,12 +37,12 @@ Route::get('register/verify/{activation_ode}', 'Auth\AuthController@confirm');
 
 Route::get('approval', function(){
     $data = array(
-        'id' => $user->id,
-        'email' => $user->email,
-        'first_name' => $user->first_name,
-        'last_name' => $user->last_name,
-        'organization' => $user->organization,
-        'reason' => $user->reason,
+        'id' => 15,
+        'email' => "dlcheng@iastate.edu",
+        'first_name' => "first",
+        'last_name' => "last",
+        'organization' => "Iowa state university",
+        'reason' => "this hard coded test",
     );
 
 
@@ -51,7 +51,7 @@ Route::get('approval', function(){
         $message->to('dlcheng@iastate.edu', "RFIDB Administrator")
             ->subject('RFIDB: Account registration request');
     });
-    return "new account has be actovated";
+    return view('auth/approval');
 });
 
 Route::get('sendemail', function () {
