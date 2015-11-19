@@ -54,7 +54,9 @@ return [
     |
     */
 
-    'from' => ['address' => 'daolinch@gmail.com', 'name' => 'RFI database'],
+    'from' => ['address' => env('MAIL_USERNAME'),
+                'name' => env('ADMIN_NAME'),
+    ],
 
     /*
     |--------------------------------------------------------------------------

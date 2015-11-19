@@ -33,9 +33,29 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('register/verify/{activation_ode}', 'Auth\AuthController@confirm');
 
+Route::get('register/approval/{id}', 'Auth\AuthController@approval');
+Route::get('admin/dash', ['middleware' => ['auth', 'admin'], 'uses' => 'Auth\AdminController@dash']);
+
+
+
+
+
+
+
+
+
+//==========================================================
+//---------------- test routes below -----------------------
+//==========================================================
+
+get('protected', ['middleware' => ['auth', 'admin'], function() {
+    return "this page requires that you be logged in and an Admin";
+}]);
 
 
 Route::get('approval', function(){
+
+//    dd(Config::get('constants.admin_email'));
     $data = array(
         'id' => 15,
         'email' => "dlcheng@iastate.edu",
@@ -55,7 +75,7 @@ Route::get('approval', function(){
 });
 
 Route::get('sendemail', function () {
-
+//    dd(env('MAIL_USERNAME'));
     $data = array(
         'code' => "some_code",
     );

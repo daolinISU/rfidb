@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Mail;
 
 
 class AuthController extends Controller
@@ -107,12 +108,48 @@ class AuthController extends Controller
 
         //send email to administrator
         Mail::send('email.request', $data, function($message) use (&$user) {
-            $message->to('dlcheng@iastate.edu', "RFIDB Administrator")
+            $message->to($user->email, $user->first_name." ".$user->last_name)
                 ->subject('RFIDB: Account registration request');
         });
 
 
         return view('Auth/confirm');
+    }
+
+
+    public function approval($id)
+    {
+
+
+        $user = User::where('id', $id)->first();
+
+        if ( ! $user)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user->status = 1;
+        $user->save();
+
+
+        $data = array(
+            'id' => $user->id,
+            'email' => $user->email,
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'organization' => $user->organization,
+            'reason' => $user->reason,
+        );
+
+
+        //send email to administrator
+        Mail::send('email.activated', $data, function($message) use (&$user) {
+            $message->to($user->email, $user->first_name." ".$user->last_name)
+                ->subject('RFIDB: Account application approved');
+        });
+
+
+        return view('admin/dash');
     }
 
 
