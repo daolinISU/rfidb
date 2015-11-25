@@ -10,7 +10,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Registration finished</div>
                     <div class="panel-body">
-                        Thank you for resisting your email. We have sent an confirmation email to your email address.</br>
+                        Thank you for registering your email. We have sent an confirmation email to your email address.</br>
                         Please check your email inbox. Thank you.
                     </div>
                 </div>

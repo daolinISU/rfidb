@@ -4,60 +4,65 @@
 
 @section('content')
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
-                    <div class="panel-body">
-                        @if (count($errors) > 0)
-                            <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+    <div class="col-lg-10 col-lg-offset-1">
 
-                        <form class="form-horizontal" role="form" method="POST" action="/auth/login">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <h1><i class="fa fa-users"></i> User Administration <a href="auth/logout" class="btn btn-default pull-right">Logout</a></h1>
 
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">E-Mail Address</label>
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-                                </div>
-                            </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
 
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Password</label>
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" name="password" id="password">
-                                </div>
-                            </div>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Organization</th>
+                    <th>Status</th>
+                    {{--<th>Apply Reason</th>
+                    <th>Date/Time Added</th>
+                    <th>Date/Time Updated</th>--}}
+                    <th>Operations</th>
+                </tr>
+                </thead>
 
-                            <div class="form-group">
-                                <label class="col-md-4 control-label"></label>
-                                <div class="col-md-6">
-                                    <input type="checkbox" name="remember"> Remember Me
-                                </div>
-                            </div>
+                <tbody>
+                @foreach ($users as $user)
+                    <tr>
+                        <td>{{ $user->first_name." ".$user->last_name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->role }}</td>
+                        <td>{{ $user->organization }}</td>
+                        <td><?php
+                                if ($user->status == 1)
+                                    echo "active";
+                                else
+                                    echo "inactive";
+                            ?>
 
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Login
-                                    </button>
-                                    <a href="{{ URL::to('password/email') }}">Forgot Your Password?</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+                        </td>
+                        <td>
+                            <a href="/user/{{ $user->id }}/edit" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+                            <form method="POST" action="/user/{{ $user->id }}/delete">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                <input type="hidden" name="_method" value="DELETE" />
+                                <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Are you sure to delete the user: {{ $user->first_name." ".$user->last_name }}? The deletion is permanent.')" >
+                                    Delete
+                                </button>
+                            </form>
+
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+
+            </table>
         </div>
+
+        <a href="/user/create" class="btn btn-success">Add User</a>
+
     </div>
+
 
 @endsection

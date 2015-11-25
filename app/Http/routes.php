@@ -34,9 +34,22 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('register/verify/{activation_ode}', 'Auth\AuthController@confirm');
 
 Route::get('register/approval/{id}', 'Auth\AuthController@approval');
-Route::get('admin/dash', ['middleware' => ['auth', 'admin'], 'uses' => 'Auth\AdminController@dash']);
+Route::get('admin/dash', ['middleware' => ['admin'], 'uses' => 'Auth\AdminController@dash']);
 
 
+
+
+
+Route::delete('user/{id}/delete', ['middleware' => ['admin'], 'uses' => 'Auth\UserController@destroy']);
+
+Route::get('user/{id}/edit', ['middleware' => ['admin'], 'uses' => 'Auth\UserController@edit']);
+Route::post('user/{id}/edit', ['middleware' => ['admin'], 'uses' => 'Auth\UserController@update']);
+
+
+Route::get('user/create', ['middleware' => ['admin'], 'uses' => 'Auth\UserController@newUser']);
+// Route::post('user/create', ['middleware' => ['admin'], 'uses' => 'Auth\UserController@createNewUser']);
+
+Route::post('user/create', 'Auth\UserController@createNewUser');
 
 
 
@@ -48,7 +61,7 @@ Route::get('admin/dash', ['middleware' => ['auth', 'admin'], 'uses' => 'Auth\Adm
 //---------------- test routes below -----------------------
 //==========================================================
 
-get('protected', ['middleware' => ['auth', 'admin'], function() {
+get('protected', ['middleware' => ['admin'], function() {
     return "this page requires that you be logged in and an Admin";
 }]);
 
