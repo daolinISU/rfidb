@@ -10,7 +10,17 @@
 
         <p>If yo would like to select 'idpig' attribute in 'id' table, then it would be: id.idpig</p>
         <li>Example query will be like this:</li>
-        <p>select</p>
+        <table class="table table-bordered">
+            <thead>
+            <th>Example</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{!! HTML::image('img/queryExample.png', 'query example',array('class' => 'bg-primary')) !!}</td>
+            </tr>
+            </tbody>
+        </table>
+
     </ol>
 
     {!! Form::open(array('url' => 'queryResults'))!!}
