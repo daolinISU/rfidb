@@ -3,7 +3,7 @@
 @section('content')
     <div class="well text-center">
         <h3>Welcome to the ISU Residual Feed Intake Database Website!</h3>
-        {!! HTML::image('img/Nursery_pigs_feeding-2.jpg', 'alt', array( 'width' => 400)) !!}
+        {!! HTML::image('img/Nursery_pigs_feeding-2.jpg', '', array( 'width' => 400)) !!}
         <br>
     </div>
     <div class="well">
