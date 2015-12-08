@@ -11,6 +11,9 @@ use DB;
 use Input;
 use Schema;
 use Session;
+use App\User;
+use Mail;
+use Redirect;
 
 class PagesController extends Controller
 {
@@ -136,6 +139,81 @@ class PagesController extends Controller
         }
         $results = $query->get();
         return view('pages.queryResults', compact('results'));
+    }
+
+//    public function postRegister() {
+//        return view('auth.postRegister');
+//    }
+
+
+    public function confirm($activation_code)
+    {
+
+//        dd($activation_code);
+        if( ! $activation_code)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user = User::where('activation_code', $activation_code)->first();
+//        dd($user);
+
+        if ( ! $user)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user->activation_code = "";
+        $user->status = 1;
+        $user->save();
+
+
+
+
+        $data = array(
+            'id' => $user->id,
+            'email' => $user->email,
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'organization' => $user->organization,
+            'reason' => $user->reason,
+        );
+
+
+        //send email to user
+        Mail::send('email.activated', $data, function($message) use (&$user) {
+            $message->to($user->email, $user->first_name." ".$user->last_name)
+                ->subject('Residual Feed Intake Registration email address confirmed');
+        });
+
+        //send email to inform administrator
+        Mail::send('email.request', $data, function($message) use (&$user) {
+            $message->to($user->email, $user->first_name." ".$user->last_name)
+                ->subject('Residual Feed Intake Database new account added');
+        });
+
+
+        return view('Auth/confirm');
+    }
+
+    public function profile($id) {
+        $user = User::where('id', $id)->first();
+
+        return view('auth/profile', compact('user'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $user = User::find($id);
+        $user->first_name = $request->input('first_name');
+        $user->email = $request->input('email');
+        $user->last_name = $request->input('last_name');
+        $user->organization = $request->input('organization');
+        $user->reason = $request->input('reason');
+        $user->password = bcrypt($request->input('password'));
+        $user->save();
+
+        return Redirect::back()->withInput();
     }
 
 }

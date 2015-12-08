@@ -82,7 +82,7 @@
                             @if(Auth::user()->isAdmin())
                                 <li><a href="/admin/dash">Admin Dashboard</a></li>
                             @endif
-                            <li><a href="/auth/profile">profile</a></li>
+                            <li><a href="/auth/profile/{{Auth::user()->id}}">profile</a></li>
                             <li><a href="/auth/logout">Logout</a></li>
                         </ul>
                     </li>

@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -31,14 +30,14 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-Route::get('register/verify/{activation_ode}', 'Auth\AuthController@confirm');
+Route::get('auth/postRegister', ['middleware' => 'auth', 'uses' => 'PagesController@postRegister']);
+
+Route::get('register/verify/{activation_code}', 'PagesController@confirm');
+
+Route::get('auth/profile/{id}', ['middleware' => 'auth', 'uses' => 'PagesController@profile']);
 
 Route::get('register/approval/{id}', 'Auth\AuthController@approval');
 Route::get('admin/dash', ['middleware' => ['admin'], 'uses' => 'Auth\AdminController@dash']);
-
-
-
-
 
 Route::delete('user/{id}/delete', ['middleware' => ['admin'], 'uses' => 'Auth\UserController@destroy']);
 
@@ -50,6 +49,10 @@ Route::get('user/create', ['middleware' => ['admin'], 'uses' => 'Auth\UserContro
 // Route::post('user/create', ['middleware' => ['admin'], 'uses' => 'Auth\UserController@createNewUser']);
 
 Route::post('user/create', 'Auth\UserController@createNewUser');
+
+
+Route::post('auth/{id}/edit', ['middleware' => ['auth'], 'uses' => 'PagesController@update']);
+
 
 
 

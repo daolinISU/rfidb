@@ -219,10 +219,11 @@
     </tr>
     <tr>
         <td>
-            <h2>Please follow the link below to approve the new user:</h2>
-            <h3><a href={{ URL::to('register/approval/' . $id) }} target ="_blank"
-            title="to administrator dashboard" style="color: blue; text-decoration: none;">Link for account approval</a>
+            <h2>Please follow the link below to administrator dashboard (you might need to login with administrator account):</h2>
+            <h3><a href={{ URL::to('admin/dash') }} target ="_blank"
+            title="to administrator dashboard" style="color: blue; text-decoration: none;">Link for administrator dashboard</a>
             </h3>
+            <p>You can also add, delete or edit all users there.</p>
         </td>
     </tr>
     <tr>

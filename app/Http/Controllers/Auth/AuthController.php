@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Mail;
+use Redirect;
 
 
 class AuthController extends Controller
@@ -57,14 +58,31 @@ class AuthController extends Controller
      */
     public function create(array $data)
     {
-        return User::create([
+        //dd(env('MAIL_USERNAME'));
+
+        $activation_code = str_random(30);
+        $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'organization' => $data['organization'],
             'reason' => $data['reason'],
+            'activation_code' => $activation_code,
         ]);
+        $data = array(
+            'code' => $activation_code,
+        );
+
+        Mail::send('email.verify', $data, function ($message) use (&$user)  {
+
+            $message->from(env('MAIL_USERNAME'), env('ADMIN_NAME'));
+
+            $message->to($user->email)->subject('Residual Feed Intake Registration email address verification');
+
+        });
+
+        return $user;
     }
 
 
@@ -78,43 +96,7 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
-    public function confirm($activation_code)
-    {
-        if( ! $activation_code)
-        {
-            throw new InvalidConfirmationCodeException;
-        }
 
-        $user = User::where('activation_code', $activation_code)->first();
-
-        if ( ! $user)
-        {
-            throw new InvalidConfirmationCodeException;
-        }
-
-        $user->activation_code = "";
-        $user->save();
-
-
-        $data = array(
-            'id' => $user->id,
-            'email' => $user->email,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'organization' => $user->organization,
-            'reason' => $user->reason,
-        );
-
-
-        //send email to administrator
-        Mail::send('email.request', $data, function($message) use (&$user) {
-            $message->to($user->email, $user->first_name." ".$user->last_name)
-                ->subject('RFIDB: Account registration request');
-        });
-
-
-        return view('Auth/confirm');
-    }
 
 
     public function approval($id)

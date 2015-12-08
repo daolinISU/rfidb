@@ -10,8 +10,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Email confirmed</div>
                     <div class="panel-body">
-                        Thank you. Your email address has been confirmed. Our administrator will process your request soon.
-                        You will receive an email as soon as you have been approved.
+                        Thank you. Your email address has been confirmed. Your account are now ready to use.
                     </div>
                 </div>
             </div>
