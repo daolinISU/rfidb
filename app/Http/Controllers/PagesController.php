@@ -193,7 +193,7 @@ class PagesController extends Controller
         });
 
 
-        return view('Auth/confirm');
+        return view('auth/confirm');
     }
 
     public function profile($id) {
