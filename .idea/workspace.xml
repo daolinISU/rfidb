@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09998ecc-c769-4420-a1cb-13daecb87832" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/pages/exportTest.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/advanceQueryForm.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/advanceQueryForm.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/queryResults.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/queryResults.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rfidb.iws" />
@@ -58,12 +53,12 @@
             <state vertical-scroll-proportion="-25.481482">
               <caret line="65" column="110" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="110" />
               <folding>
-                <marker date="1449949855826" expanded="true" signature="1407:1610" placeholder="..." />
-                <marker date="1449949855826" expanded="true" signature="1420:1608" placeholder="..." />
-                <marker date="1449949855826" expanded="true" signature="1458:1607" placeholder="..." />
-                <marker date="1449949855826" expanded="true" signature="1949:2245" placeholder="..." />
-                <marker date="1449949855826" expanded="true" signature="1962:2243" placeholder="..." />
-                <marker date="1449949855826" expanded="true" signature="2041:2242" placeholder="..." />
+                <marker date="1449956214195" expanded="true" signature="1407:1610" placeholder="..." />
+                <marker date="1449956214195" expanded="true" signature="1420:1608" placeholder="..." />
+                <marker date="1449956214195" expanded="true" signature="1458:1607" placeholder="..." />
+                <marker date="1449956214195" expanded="true" signature="1949:2245" placeholder="..." />
+                <marker date="1449956214195" expanded="true" signature="1962:2243" placeholder="..." />
+                <marker date="1449956214195" expanded="true" signature="2041:2242" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -101,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2667984">
-              <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+            <state vertical-scroll-proportion="-22.0">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <element signature="e#322#352#0#HTML" expanded="true" />
               </folding>
@@ -123,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.148148">
-              <caret line="28" column="28" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.18181819">
+              <caret line="31" column="104" selection-start-line="31" selection-start-column="104" selection-end-line="31" selection-end-column="104" />
               <folding />
             </state>
           </provider>
@@ -204,13 +199,13 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/profile.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" />
-        <option value="$PROJECT_DIR$/resources/views/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/advanceQueryForm.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/exportTest.blade.php" />
         <option value="$PROJECT_DIR$/public/js/excellentexport.js" />
         <option value="$PROJECT_DIR$/resources/views/pages/queryResults.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/app.blade.php" />
       </list>
     </option>
   </component>
@@ -231,8 +226,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-96" />
+    <option name="y" value="23" />
     <option name="width" value="1616" />
     <option name="height" value="1176" />
   </component>
@@ -732,7 +727,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="1176" extended-state="6" />
+    <frame x="-96" y="23" width="1616" height="1176" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1088,14 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.148148">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/auth/profile.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.0">
@@ -1135,12 +1122,12 @@
         <state vertical-scroll-proportion="-25.481482">
           <caret line="65" column="110" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="110" />
           <folding>
-            <marker date="1449949855826" expanded="true" signature="1407:1610" placeholder="..." />
-            <marker date="1449949855826" expanded="true" signature="1420:1608" placeholder="..." />
-            <marker date="1449949855826" expanded="true" signature="1458:1607" placeholder="..." />
-            <marker date="1449949855826" expanded="true" signature="1949:2245" placeholder="..." />
-            <marker date="1449949855826" expanded="true" signature="1962:2243" placeholder="..." />
-            <marker date="1449949855826" expanded="true" signature="2041:2242" placeholder="..." />
+            <marker date="1449956214195" expanded="true" signature="1407:1610" placeholder="..." />
+            <marker date="1449956214195" expanded="true" signature="1420:1608" placeholder="..." />
+            <marker date="1449956214195" expanded="true" signature="1458:1607" placeholder="..." />
+            <marker date="1449956214195" expanded="true" signature="1949:2245" placeholder="..." />
+            <marker date="1449956214195" expanded="true" signature="1962:2243" placeholder="..." />
+            <marker date="1449956214195" expanded="true" signature="2041:2242" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1155,11 +1142,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2667984">
-          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+        <state vertical-scroll-proportion="-22.0">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
             <element signature="e#322#352#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18181819">
+          <caret line="31" column="104" selection-start-line="31" selection-start-column="104" selection-end-line="31" selection-end-column="104" />
+          <folding />
         </state>
       </provider>
     </entry>
