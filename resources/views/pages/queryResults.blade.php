@@ -7,9 +7,8 @@
 
 
     <h1>Query Results</h1>
-    <a download="queryResults.xls" href="#" onclick="return ExcellentExport.excel(this, 'datatable', 'Query Results');">Export to Excel</a>
-    <br/>
-    <a download="queryResults.csv" href="#" onclick="return ExcellentExport.csv(this, 'datatable');">Export to CSV</a>
+    <a download="queryResults.xls" href="#" onclick="return ExcellentExport.excel(this, 'datatable', 'Query Results');"><button type="button" class="btn btn-info">Export to Excel</button></a>
+    <a download="queryResults.csv" href="#" onclick="return ExcellentExport.csv(this, 'datatable');"><button type="button" class="btn btn-info">Export to CSV</button></a>
     <br/>
 
     <?PHP
