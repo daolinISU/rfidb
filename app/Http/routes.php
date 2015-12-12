@@ -64,6 +64,10 @@ Route::post('auth/{id}/edit', ['middleware' => ['auth'], 'uses' => 'PagesControl
 //---------------- test routes below -----------------------
 //==========================================================
 
+get('exportTest', function(){
+   return view('pages/exportTest');
+});
+
 get('protected', ['middleware' => ['admin'], function() {
     return "this page requires that you be logged in and an Admin";
 }]);

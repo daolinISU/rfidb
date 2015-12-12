@@ -1,6 +1,8 @@
 @extends('app')
 
 @section('content')
+    <script src="js/script.js"></script>
+
     <h1 xmlns="http://www.w3.org/1999/html">Advance Query Page</h1>
     <ol>
         <li>This query will query whole database, 22 tables in total.</li>

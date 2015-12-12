@@ -8,6 +8,18 @@
     </div>
     <div class="well">
 
+        <h4>Updates</h4>
+        <ul style="list-style-type:circle">
+            <li><b>12/12/2015:</b>
+                <ol>
+                    <li>Export to excel in query results</li>
+                    <li>Export to csv in query results</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    <div class="well">
+
         <h4>Disclaimer</h4>
         <p>
             This website is now under construction. All the information presented here is for testing
