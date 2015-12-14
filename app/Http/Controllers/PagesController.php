@@ -178,8 +178,13 @@ class PagesController extends Controller
         });
 
         //send email to inform administrator
+<<<<<<< HEAD
         Mail::send('email.request', $data, function ($message) use (&$user) {
             $message->to($user->email, $user->first_name . " " . $user->last_name)
+=======
+        Mail::send('email.request', $data, function($message) use (&$user) {
+            $message->to(env('MAIL_USERNAME'), env('ADMIN_NAME'))
+>>>>>>> master
                 ->subject('Residual Feed Intake Database new account added');
         });
 
@@ -269,7 +274,7 @@ class PagesController extends Controller
 //        dd($query->selectRaw('count(*)')->get());
 
         $query->selectRaw($attribute_list);
-
+         //in case we need filters
 //        //add where clause
 //        for ($i = 0; $i < count($inputs["expr"]); ++$i) {
 //            $logic = strtolower(preg_replace('/\s+/', '', $inputs["logic"][$i]));
