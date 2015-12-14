@@ -115,26 +115,21 @@ class PagesController extends Controller
 
         $query = DB::table($tables[0]);
         //inner join tables
-        for ($i = 1; $i < count($tables); ++$i)
-        {
-            $query->join($tables[$i], $tables[0].".idpig", "=", $tables[$i].".idpig");
+        for ($i = 1; $i < count($tables); ++$i) {
+            $query->join($tables[$i], $tables[0] . ".idpig", "=", $tables[$i] . ".idpig");
         }
         //Select attribute list
-        if ($inputs["attribute_list"] != null)
-        {
+        if ($inputs["attribute_list"] != null) {
             $query->selectRaw($inputs["attribute_list"]);
         }
         //add where clause
-        for ($i = 0; $i < count($inputs["expr"]); ++$i)
-        {
+        for ($i = 0; $i < count($inputs["expr"]); ++$i) {
             $logic = strtolower(preg_replace('/\s+/', '', $inputs["logic"][$i]));
             //dd($logic);
-            if ($logic === "and")
-            {
-                $query ->whereRaw($inputs["expr"][$i]);
-            } elseif ($logic === "or")
-            {
-                $query ->orWhereRaw($inputs["expr"][$i]);
+            if ($logic === "and") {
+                $query->whereRaw($inputs["expr"][$i]);
+            } elseif ($logic === "or") {
+                $query->orWhereRaw($inputs["expr"][$i]);
             }
         }
         $results = $query->get();
@@ -150,24 +145,20 @@ class PagesController extends Controller
     {
 
 //        dd($activation_code);
-        if( ! $activation_code)
-        {
+        if (!$activation_code) {
             throw new InvalidConfirmationCodeException;
         }
 
         $user = User::where('activation_code', $activation_code)->first();
 //        dd($user);
 
-        if ( ! $user)
-        {
+        if (!$user) {
             throw new InvalidConfirmationCodeException;
         }
 
         $user->activation_code = "";
         $user->status = 1;
         $user->save();
-
-
 
 
         $data = array(
@@ -181,14 +172,14 @@ class PagesController extends Controller
 
 
         //send email to user
-        Mail::send('email.activated', $data, function($message) use (&$user) {
-            $message->to($user->email, $user->first_name." ".$user->last_name)
+        Mail::send('email.activated', $data, function ($message) use (&$user) {
+            $message->to($user->email, $user->first_name . " " . $user->last_name)
                 ->subject('Residual Feed Intake Registration email address confirmed');
         });
 
         //send email to inform administrator
-        Mail::send('email.request', $data, function($message) use (&$user) {
-            $message->to($user->email, $user->first_name." ".$user->last_name)
+        Mail::send('email.request', $data, function ($message) use (&$user) {
+            $message->to($user->email, $user->first_name . " " . $user->last_name)
                 ->subject('Residual Feed Intake Database new account added');
         });
 
@@ -196,7 +187,8 @@ class PagesController extends Controller
         return view('auth/confirm');
     }
 
-    public function profile($id) {
+    public function profile($id)
+    {
         $user = User::where('id', $id)->first();
 
         return view('auth/profile', compact('user'));
@@ -216,4 +208,79 @@ class PagesController extends Controller
         return Redirect::back()->withInput();
     }
 
+    public function showTable()
+    {
+        $tables = DB::select('SHOW TABLES');
+//        dd($tables);
+        return view('pages.browser', compact('tables'));
+    }
+
+    public function getAttr(Request $resuest)
+    {
+        $inputs = $resuest->except("_token");
+        if (count($inputs) === 0) return 'Please select at least one table';
+
+        $data = array();
+        $tables = $inputs["table"];
+
+        for ($i = 0; $i < count($tables); ++$i) {
+            $columns = Schema::getColumnListing($tables[$i]);
+            $data[$tables[$i]] = $columns;
+        }
+
+        return view('pages.attr', compact('data'));
+    }
+
+    public function getResult(Request $resuest)
+    {
+        $inputs = $resuest->except("_token")["attr"];
+//        dd($inputs);
+
+        if (count($inputs) === 0) return 'Please select at least one attribute';
+
+
+        //get tables list in array $tables
+        $tables = array();
+        $tableTemp = "";
+        foreach ($inputs as $input) {
+//            dd($input);
+            $names = explode(".", $input);
+            if ($names[0] != $tableTemp) {
+                $tableTemp = $names[0];
+                array_push($tables, $names[0]);
+            }
+        }
+
+        dd($tables);
+
+        $query = DB::table($tables[0]);
+        //inner join tables
+        for ($i = 1; $i < count($tables); ++$i) {
+            $query->join($tables[$i], $tables[0] . ".idpig", "=", $tables[$i] . ".idpig");
+        }
+        //Select attribute list
+        $attribute_list = "";
+        foreach ($inputs as $input) {
+//            dd($input);
+            $attribute_list = $attribute_list.$input.",";
+        }
+        $attribute_list = rtrim($attribute_list, ",");
+//        dd($attribute_list);
+//        dd($query->selectRaw('count(*)')->get());
+
+        $query->selectRaw($attribute_list);
+
+//        //add where clause
+//        for ($i = 0; $i < count($inputs["expr"]); ++$i) {
+//            $logic = strtolower(preg_replace('/\s+/', '', $inputs["logic"][$i]));
+//            //dd($logic);
+//            if ($logic === "and") {
+//                $query->whereRaw($inputs["expr"][$i]);
+//            } elseif ($logic === "or") {
+//                $query->orWhereRaw($inputs["expr"][$i]);
+//            }
+//        }
+        $results = $query->get();
+        return view('pages.queryResults', compact('results'));
+    }
 }

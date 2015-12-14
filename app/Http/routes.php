@@ -64,6 +64,9 @@ Route::post('auth/{id}/edit', ['middleware' => ['auth'], 'uses' => 'PagesControl
 //---------------- test routes below -----------------------
 //==========================================================
 
+Route::get('browser', 'PagesController@showTable');
+Route::post('browseTable', 'PagesController@getAttr');
+Route::post('browseResult', 'PagesController@getResult');
 get('exportTest', function(){
    return view('pages/exportTest');
 });
