@@ -178,13 +178,8 @@ class PagesController extends Controller
         });
 
         //send email to inform administrator
-<<<<<<< HEAD
-        Mail::send('email.request', $data, function ($message) use (&$user) {
-            $message->to($user->email, $user->first_name . " " . $user->last_name)
-=======
         Mail::send('email.request', $data, function($message) use (&$user) {
             $message->to(env('MAIL_USERNAME'), env('ADMIN_NAME'))
->>>>>>> master
                 ->subject('Residual Feed Intake Database new account added');
         });
 
