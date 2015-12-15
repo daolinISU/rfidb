@@ -258,7 +258,6 @@ class PagesController extends Controller
                 array_push($tables, $names[0]);
             }
         }
-
 //        dd($tables);
 
         $query = DB::table($tables[0]);
@@ -273,10 +272,11 @@ class PagesController extends Controller
             $attribute_list = $attribute_list.$input.",";
         }
         $attribute_list = rtrim($attribute_list, ",");
-        dd($attribute_list);
+//        dd($attribute_list);
 //        dd($query->selectRaw('count(*)')->get());
 
         $query->selectRaw($attribute_list);
+//        dd($query->toSql());
          //in case we need filters
 //        //add where clause
 //        for ($i = 0; $i < count($inputs["expr"]); ++$i) {
@@ -289,6 +289,8 @@ class PagesController extends Controller
 //            }
 //        }
         $results = $query->get();
+//        dd($results);
+//        dd($query->toSql());
         return view('pages.queryResults', compact('results'));
     }
 }

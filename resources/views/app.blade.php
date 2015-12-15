@@ -71,8 +71,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
                 <li><a href="/wait">Overview</a></li>
-                <li><a href="/browser">Browse</a></li>
-                <li><a href="/advanceQueryForm">Search</a></li>
+                <li><a href="/browser">Search</a></li>
+                <li><a href="/advanceQueryForm">Advanced Search</a></li>
                 <li><a href="/wait">Help</a></li>
                 <li><a href="/wait">About us</a></li>
             </ul>
