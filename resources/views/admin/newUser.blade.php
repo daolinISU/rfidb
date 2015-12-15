@@ -24,42 +24,55 @@
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">First Name</label>
+
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="first_name" value="{{ old('first_name') }}">
+                                    <input type="text" class="form-control" name="first_name"
+                                           placeholder="user's first name">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Last Name</label>
+
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="last_name" value="{{ old('last_name') }}">
+                                    <input type="text" class="form-control" name="last_name"
+                                           placeholder="user's last name">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">E-Mail Address</label>
+
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                    <input type="email" class="form-control" name="email"
+                                           placeholder="user's email">
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Password</label>
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" name="password">
-                                </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Organization</label>
+                                <label class="col-md-4 control-label">Password</label>
+
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="organization" placeholder="Your institute name">
+                                    <input type="password" class="form-control" name="password"
+                                           placeholder="record password for user">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Organization</label>
+
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="organization"
+                                           placeholder="user's institute name">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Reason for applying</label>
+
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="reason" placeholder="A few word about why you register for this account">
+                                    <input type="text" class="form-control" name="reason"
+                                           placeholder="A few word about why user register for this account">
                                 </div>
                             </div>
 
