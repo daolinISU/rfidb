@@ -70,7 +70,11 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
+                <li><a href="wait">Overview</a></li>
+                <li><a href="browser">Browse</a></li>
                 <li><a href="/advanceQueryForm">Search</a></li>
+                <li><a href="wait">Help</a></li>
+                <li><a href="wait">About us</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

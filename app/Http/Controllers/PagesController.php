@@ -100,6 +100,11 @@ class PagesController extends Controller
         return view('welcome');
     }
 
+    public function notdone()
+    {
+        return view('errors.notdone');
+    }
+
     public function advanceQueryForm()
     {
         return view('pages.advanceQueryForm');
@@ -196,14 +201,17 @@ class PagesController extends Controller
 
     public function update($id, Request $request)
     {
+//        dd($request->input('role'));
         $user = User::find($id);
         $user->first_name = $request->input('first_name');
         $user->email = $request->input('email');
         $user->last_name = $request->input('last_name');
+//        $user->role = $request->input('role');
         $user->organization = $request->input('organization');
         $user->reason = $request->input('reason');
         $user->password = bcrypt($request->input('password'));
         $user->save();
+//        dd($request->input('role'));
 
         return Redirect::back()->withInput();
     }
@@ -251,7 +259,7 @@ class PagesController extends Controller
             }
         }
 
-        dd($tables);
+//        dd($tables);
 
         $query = DB::table($tables[0]);
         //inner join tables
@@ -265,7 +273,7 @@ class PagesController extends Controller
             $attribute_list = $attribute_list.$input.",";
         }
         $attribute_list = rtrim($attribute_list, ",");
-//        dd($attribute_list);
+        dd($attribute_list);
 //        dd($query->selectRaw('count(*)')->get());
 
         $query->selectRaw($attribute_list);

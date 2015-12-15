@@ -10,6 +10,7 @@
 |
 */
 Route::get('/', 'PagesController@index');
+Route::get('wait', 'PagesController@notdone');
 
 Route::get('genotyping', 'PagesController@genotyping');
 Route::get('carcass', 'PagesController@carcass');
@@ -53,6 +54,10 @@ Route::post('user/create', 'Auth\UserController@createNewUser');
 
 Route::post('auth/{id}/edit', ['middleware' => ['auth'], 'uses' => 'PagesController@update']);
 
+//browse database
+Route::get('browser', ['middleware' => ['auth'], 'uses' => 'PagesController@showTable']);
+Route::post('browseTable', ['middleware' => ['auth'], 'uses' => 'PagesController@getAttr']);
+Route::post('browseResult', ['middleware' => ['auth'], 'uses' => 'PagesController@getResult']);
 
 
 

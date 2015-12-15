@@ -10,6 +10,11 @@
 
         <h4>Updates</h4>
         <ul style="list-style-type:circle">
+            <li><b>12/15/2015:</b>
+                <ol>
+                    <li>Browse database through list of tables and their attributes with multiple selection</li>
+                </ol>
+            </li>
             <li><b>12/12/2015:</b>
                 <ol>
                     <li>Export to excel in query results</li>
@@ -19,7 +24,7 @@
         </ul>
     </div>
     <div class="well">
-
+        <h3 color="red">This site is temporary, you account will be deleted once we find new server and domain name.</h3>
         <h4>Disclaimer</h4>
         <p>
             This website is now under construction. All the information presented here is for testing

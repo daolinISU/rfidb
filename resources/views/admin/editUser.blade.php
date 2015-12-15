@@ -25,7 +25,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">First Name</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="first_name" value="{{ $user->last_name }}">
+                                    <input type="text" class="form-control" name="first_name" value="{{ $user->first_name }}">
                                 </div>
                             </div>
 

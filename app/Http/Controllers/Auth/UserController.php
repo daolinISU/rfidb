@@ -36,7 +36,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->first_name = $request->input('first_name');
         $user->email = $request->input('email');
-        $user->role = $request->input('first_name');
+        $user->role = $request->input('role');
         $user->last_name = $request->input('last_name');
         $user->organization = $request->input('organization');
         $user->reason = $request->input('reason');
