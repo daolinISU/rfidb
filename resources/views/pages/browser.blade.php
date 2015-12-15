@@ -6,6 +6,7 @@
     </div>
     <div class="well">
         <h3>Select tables:</h3>
+        <p>for help with tables and attributes description, click <a href="/pdf">here</a></p>
         {!! Form::open(array('url' => 'browseTable'))!!}
         <div class="form-group">
             @foreach ($tables as $table)

@@ -59,7 +59,15 @@ Route::get('browser', ['middleware' => ['auth'], 'uses' => 'PagesController@show
 Route::post('browseTable', ['middleware' => ['auth'], 'uses' => 'PagesController@getAttr']);
 Route::post('browseResult', ['middleware' => ['auth'], 'uses' => 'PagesController@getResult']);
 
+Route::get('pdf', function(){
+    $filename = '/../resources/pdf/tables.pdf';
+    $path = storage_path().DIRECTORY_SEPARATOR.$filename;
 
+    return Response::make(file_get_contents($path), 200, [
+        'Content-Type' => 'application/pdf',
+        'Content-Disposition' => 'inline; '.$filename,
+    ]);
+});
 
 
 

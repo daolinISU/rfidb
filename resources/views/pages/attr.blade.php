@@ -9,11 +9,13 @@
         <?PHP $keys = array_keys($data)?>
         <p>You have selected <?PHP echo count($keys) ?> tables.</p>
 
-        <p>{{$keys[0]}}
+        <p><b>{{$keys[0]}}
             @for($i = 1; $i < count($keys); $i++)
                 ,{{$keys[$i]}}
             @endfor
+            </b>
         </p>
+        <p>for help with tables and attributes description, click <a href="/pdf">here</a></p>
     </div>
     <div class="well">
         {!! Form::open(array('url' => 'browseResult'))!!}
