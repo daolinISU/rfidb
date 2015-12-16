@@ -40,7 +40,7 @@ class UserController extends Controller
         $user->last_name = $request->input('last_name');
         $user->organization = $request->input('organization');
         $user->reason = $request->input('reason');
-        $user->password = bcrypt($request->input('password'));
+//        $user->password = bcrypt($request->input('password'));
         $user->status = $request->input('status');
         $user->save();
 

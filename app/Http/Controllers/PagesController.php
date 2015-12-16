@@ -209,7 +209,7 @@ class PagesController extends Controller
 //        $user->role = $request->input('role');
         $user->organization = $request->input('organization');
         $user->reason = $request->input('reason');
-        $user->password = bcrypt($request->input('password'));
+//        $user->password = bcrypt($request->input('password'));
         $user->save();
 //        dd($request->input('role'));
 
