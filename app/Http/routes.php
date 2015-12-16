@@ -70,6 +70,11 @@ Route::get('pdf', function(){
 });
 
 
+Route::get('contact', function(){
+    return view('pages.contact');
+});
+
+
 
 
 
@@ -77,9 +82,9 @@ Route::get('pdf', function(){
 //---------------- test routes below -----------------------
 //==========================================================
 
-Route::get('browser', 'PagesController@showTable');
+/*Route::get('browser', 'PagesController@showTable');
 Route::post('browseTable', 'PagesController@getAttr');
-Route::post('browseResult', 'PagesController@getResult');
+Route::post('browseResult', 'PagesController@getResult');*/
 get('exportTest', function(){
    return view('pages/exportTest');
 });

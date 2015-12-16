@@ -10,11 +10,12 @@
         <p>You have selected <?PHP echo count($keys) ?> tables.</p>
 
         <p><b>{{$keys[0]}}
-            @for($i = 1; $i < count($keys); $i++)
-                ,{{$keys[$i]}}
-            @endfor
+                @for($i = 1; $i < count($keys); $i++)
+                    ,{{$keys[$i]}}
+                @endfor
             </b>
         </p>
+
         <p>for help with tables and attributes description, click <a href="/pdf">here</a></p>
     </div>
     <div class="well">
@@ -22,12 +23,15 @@
         <h3>Select attributes you would like to include: </h3>
         @foreach($keys as $key)
             <div class="form-group">
-                <p>Attributes in Table {{$key}}</p>
-                @foreach($data[$key] as $attr)
-                    {!! Form::checkbox('attr[]', $key.'.'.$attr, false) !!}
-                    {!! Form::label($key.'.'.$attr) !!}
-                    <br>
-                @endforeach
+                <div class="row">
+                    <h4>Attributes in Table {{$key}}</h4>
+                    @foreach($data[$key] as $attr)
+                        <div class="col-sm-3">
+                            {!! Form::checkbox('attr[]', $key.'.'.$attr, false) !!}
+                            {!! Form::label($key.'.'.$attr) !!}
+                        </div>
+                    @endforeach
+                </div>
             </div>
         @endforeach
         <div class="form-group">
