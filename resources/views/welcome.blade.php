@@ -10,6 +10,11 @@
 
         <h4>Updates</h4>
         <ul style="list-style-type:circle">
+            <li><b>12/22/2015:</b>
+                <ol>
+                    <li>Reset password through email. Reset link expires once get clicked.</li>
+                </ol>
+            </li>
             <li><b>12/15/2015:</b>
                 <ol>
                     <li>Browse database through list of tables and their attributes with multiple selection</li>
