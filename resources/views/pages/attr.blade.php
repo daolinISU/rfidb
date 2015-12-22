@@ -26,7 +26,7 @@
                 <div class="row">
                     <h4>Attributes in Table {{$key}}</h4>
                     @foreach($data[$key] as $attr)
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             {!! Form::checkbox('attr[]', $key.'.'.$attr, false) !!}
                             {!! Form::label($key.'.'.$attr) !!}
                         </div>

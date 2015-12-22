@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Password_reset;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,6 +14,8 @@ use Redirect;
 use Mail;
 use View;
 use Input;
+use Session;
+use Carbon\Carbon;
 
 
 class UserController extends Controller
@@ -71,5 +74,83 @@ class UserController extends Controller
         return Redirect::action('Auth\AdminController@dash');
     }
 
+    public function forgotPass() {
+        return view('auth.forgotPass');
+    }
 
+    public function sendReset(Request $request) {
+        $email = $request->input('email');
+//        dd($request->input('email'));
+        $user = DB::table('users')->where('email', $email)->first();
+        if ( ! $user)
+        {
+            Session::flash('message', 'This email does not exist.');
+            return Redirect::back();
+        }
+//        dd(count($user->id));
+        $token = str_random(30);
+        $mytime = Carbon::now();
+        Password_reset::create([
+            'email' => $email,
+            'token' => $token,
+            'created_at' => $mytime,
+        ]);
+//        dd($mytime);
+        $data = array(
+            'token' => $token,
+        );
+
+        Mail::send('email.reset', $data, function ($message) use (&$user)  {
+
+            $message->from(env('MAIL_USERNAME'), env('ADMIN_NAME'));
+
+            $message->to($user->email)->subject('Residual Feed Intake Password Rest');
+
+        });
+
+        return view('auth.emailSent');
+    }
+
+    public function reset($token) {
+//        dd($token);
+        $reset = DB::table('password_resets')->where('token', $token)->first();
+
+        if (!$reset)
+        {
+            Session::flash('message', 'This link is either expired or invalid.');
+            return view('auth.login');
+        }
+
+        $email = $reset->email;
+        $user = DB::table('users')->where('email', $email)->first();
+        $id = $user->id;
+//        dd($id);
+
+        DB::table('password_resets')->where('token', $token)->delete();
+
+//        dd($email);
+
+        return view('auth.reset', compact('id'));
+    }
+
+    public function updatePass(Request $request) {
+//        dd($request->input('email'));
+//        dd($request->input('password'));
+            //update password
+        $user = $user = User::find($request->input('id'));
+        $user->password = bcrypt($request->input('password'));
+        $user->save();
+        //send email to notify user
+        $data = array(
+            'user' => $user,
+        );
+        Mail::send('email.passwordUpdated', $data, function ($message) use (&$user)  {
+
+            $message->from(env('MAIL_USERNAME'), env('ADMIN_NAME'));
+
+            $message->to($user->email)->subject('Residual Feed Intake Password Has Been Reset');
+
+        });
+        return view('auth.login');
+    }
 }

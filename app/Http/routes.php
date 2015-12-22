@@ -26,6 +26,10 @@ Route::post('queryResults', 'PagesController@queryResults');
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('password/email', 'Auth\UserController@forgotPass');
+Route::post('password/email', 'Auth\UserController@sendReset');
+Route::get('password/reset/{token}', 'Auth\UserController@reset');
+Route::post('password/reset', 'Auth\UserController@updatePass');
 
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
