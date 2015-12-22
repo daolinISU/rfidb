@@ -216,6 +216,11 @@ class PagesController extends Controller
         return Redirect::back()->withInput();
     }
 
+    public function getResetPass($id) {
+        dd("controller for user setting password");
+        return view('auth/reset', compact('id'));
+    }
+
     public function showTable()
     {
         $tables = DB::select('SHOW TABLES');

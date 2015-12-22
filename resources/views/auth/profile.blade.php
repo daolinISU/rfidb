@@ -24,41 +24,49 @@
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">First Name</label>
+
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="first_name" value="{{ $user->first_name }}">
+                                    <input type="text" class="form-control" name="first_name"
+                                           value="{{ $user->first_name }}">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Last Name</label>
+
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="last_name" value="{{ $user->last_name }}">
+                                    <input type="text" class="form-control" name="last_name"
+                                           value="{{ $user->last_name }}">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">E-Mail Address</label>
+
                                 <div class="col-md-6">
                                     <input type="email" class="form-control" name="email" value="{{ $user->email }}">
                                 </div>
                             </div>
 
                             {{--<div class="form-group">--}}
-                                {{--<label class="col-md-4 control-label">New Password</label>--}}
-                                {{--<div class="col-md-6">--}}
-                                    {{--<input type="password" class="form-control" name="password">--}}
-                                {{--</div>--}}
+                            {{--<label class="col-md-4 control-label">New Password</label>--}}
+                            {{--<div class="col-md-6">--}}
+                            {{--<input type="password" class="form-control" name="password">--}}
+                            {{--</div>--}}
                             {{--</div>--}}
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Organization</label>
+
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="organization" value="{{ $user->organization }}">
+                                    <input type="text" class="form-control" name="organization"
+                                           value="{{ $user->organization }}">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Reason for applying</label>
+
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="reason" value="{{ $user->reason }}">
                                 </div>
@@ -72,6 +80,17 @@
                                 </div>
                             </div>
                         </form>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <a href="/auth/{{$user->id}}/resetPass">
+                                        <button class="btn btn-primary">Reset password</button>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

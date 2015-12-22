@@ -39,7 +39,13 @@ Route::get('auth/postRegister', ['middleware' => 'auth', 'uses' => 'PagesControl
 
 Route::get('register/verify/{activation_code}', 'PagesController@confirm');
 
+//update profile
 Route::get('auth/profile/{id}', ['middleware' => 'auth', 'uses' => 'PagesController@profile']);
+Route::post('auth/{id}/edit', ['middleware' => ['auth'], 'uses' => 'PagesController@update']);
+//update password
+Route::get('auth/{id}/resetPass', ['middleware' => ['auth'], 'uses' => 'PagesController@getResetPass']);
+Route::post('auth/{id}/resetPass', ['middleware' => ['auth'], 'uses' => 'PagesController@resetPass']);
+
 
 Route::get('register/approval/{id}', 'Auth\AuthController@approval');
 Route::get('admin/dash', ['middleware' => ['admin'], 'uses' => 'Auth\AdminController@dash']);
@@ -56,7 +62,6 @@ Route::get('user/create', ['middleware' => ['admin'], 'uses' => 'Auth\UserContro
 Route::post('user/create', 'Auth\UserController@createNewUser');
 
 
-Route::post('auth/{id}/edit', ['middleware' => ['auth'], 'uses' => 'PagesController@update']);
 
 //browse database
 Route::get('browser', ['middleware' => ['auth'], 'uses' => 'PagesController@showTable']);

@@ -16,6 +16,7 @@ use View;
 use Input;
 use Session;
 use Carbon\Carbon;
+use Auth;
 
 
 class UserController extends Controller
@@ -151,6 +152,9 @@ class UserController extends Controller
             $message->to($user->email)->subject('Residual Feed Intake Password Has Been Reset');
 
         });
-        return view('auth.login');
+        Auth::logout();
+        Session::flush();
+
+        return Redirect::action('Auth\AuthController@getLogin');
     }
 }
