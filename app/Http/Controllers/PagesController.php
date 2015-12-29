@@ -217,7 +217,7 @@ class PagesController extends Controller
     }
 
     public function getResetPass($id) {
-        dd("controller for user setting password");
+//        dd("controller for user setting password");
         return view('auth/reset', compact('id'));
     }
 

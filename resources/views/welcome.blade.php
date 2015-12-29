@@ -10,6 +10,11 @@
 
         <h4>Updates</h4>
         <ul style="list-style-type:circle">
+            <li><b>12/28/2015:</b>
+                <ol>
+                    <li>User can changge password through user profile -> reset password. Email will be sent to notify user.</li>
+                </ol>
+            </li>
             <li><b>12/22/2015:</b>
                 <ol>
                     <li>Reset password through email. Reset link expires once get clicked.</li>
