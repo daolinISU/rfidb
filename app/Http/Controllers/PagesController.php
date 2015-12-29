@@ -290,20 +290,31 @@ class PagesController extends Controller
         //get tables list in array $tables
         $tables = array();
         $tableTemp = "";
+        $flag = false;
         foreach ($inputs as $input) {
 //            dd($input);
             $names = explode(".", $input);
+            if ($names[0] === "lps_rfi"
+                || $names[0] === "lps_inventory"
+                || $names[0] === "lps_rnaseq"
+                )
+                $flag = true;
             if ($names[0] != $tableTemp) {
                 $tableTemp = $names[0];
                 array_push($tables, $names[0]);
             }
         }
 //        dd($tables);
+        $joinAttr = ".idpig";
+        if($flag)
+            $joinAttr = ".eartag";
+
+//        dd ($joinAttr);
 
         $query = DB::table($tables[0]);
         //inner join tables
         for ($i = 1; $i < count($tables); ++$i) {
-            $query->join($tables[$i], $tables[0] . ".idpig", "=", $tables[$i] . ".idpig");
+            $query->join($tables[$i], $tables[0] . $joinAttr, "=", $tables[$i] . $joinAttr);
         }
         //Select attribute list
         $attribute_list = "";
@@ -311,6 +322,7 @@ class PagesController extends Controller
 //            dd($input);
             $attribute_list = $attribute_list.$input.",";
         }
+        //trim: get rod of ","
         $attribute_list = rtrim($attribute_list, ",");
 //        dd($attribute_list);
 //        dd($query->selectRaw('count(*)')->get());
