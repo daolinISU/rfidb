@@ -64,7 +64,9 @@ Route::post('user/create', 'Auth\UserController@createNewUser');
 
 
 //browse database
-Route::get('browser', ['middleware' => ['auth'], 'uses' => 'PagesController@showTable']);
+Route::get('database', ['middleware' => ['auth'], 'uses' => 'PagesController@showDatabase']);
+Route::post('database', ['middleware' => ['auth'], 'uses' => 'PagesController@showTable']);
+//Route::get('browser', ['middleware' => ['auth'], 'uses' => 'PagesController@showTable']);
 Route::post('browseTable', ['middleware' => ['auth'], 'uses' => 'PagesController@getAttr']);
 Route::post('browseResult', ['middleware' => ['auth'], 'uses' => 'PagesController@getResult']);
 

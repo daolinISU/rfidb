@@ -11,19 +11,11 @@
         {!! Form::open(array('url' => 'browseTable'))!!}
         <div class="form-group">
             <div class="row">
-
                 @foreach ($tables as $table)
-                    <?PHP if (($table->Tables_in_rfidb) === "users"
-                            || ($table->Tables_in_rfidb) === "password_resets"
-                            || ($table->Tables_in_rfidb) === "migrations"
-                    )
-                        continue;
-                    ?>
                     <div class="col-sm-3">
-                        {!! Form::checkbox('table[]', $table->Tables_in_rfidb, false) !!}
-                        {!! Form::label($table->Tables_in_rfidb) !!}
+                        {!! Form::checkbox('table[]', $table, false) !!}
+                        {!! Form::label($table) !!}
                     </div>
-
                 @endforeach
             </div>
         </div>

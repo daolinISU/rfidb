@@ -221,9 +221,44 @@ class PagesController extends Controller
         return view('auth/reset', compact('id'));
     }
 
-    public function showTable()
+
+
+
+
+    public function showDatabase()
     {
-        $tables = DB::select('SHOW TABLES');
+        $data = array(
+                    "lps",
+                    "others",
+                );
+        return view('pages.database', compact('data'));
+    }
+
+    public function showTable(Request $resuest)
+    {
+        $inputs = $resuest->except("_token");
+//        dd($inputs["database"]);
+        $tablelist = DB::select('SHOW TABLES');
+//        dd($tables);
+        $tables = array();
+        foreach ($tablelist as $table) {
+            array_push($tables, $table->Tables_in_rfidb);
+        }
+//        dd($tables);
+        if ($inputs["database"] === "lps") {
+            $tables = array("lps_rfi",
+                "lps_inventory",
+                "lps_rnaseq",);
+        } else {
+            $tables = array_diff($tables, array(
+                "lps_rfi",
+                "lps_inventory",
+                "lps_rnaseq",
+                "users",
+                "password_resets",
+                "migrations",
+            ));
+        }
 //        dd($tables);
         return view('pages.browser', compact('tables'));
     }
