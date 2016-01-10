@@ -79,7 +79,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
                 <li><a href="http://www.swinefeedefficiency.com/isurfiproject.html">Overview</a></li>
-                <li><a href="/browser">Search</a></li>
+                <li><a href="/database">Search</a></li>
                 <li><a href="/advanceQueryForm">Advanced Search</a></li>
                 <li><a href="/wait">Help</a></li>
                 <li><a href="/contact">Contact Us</a></li>
