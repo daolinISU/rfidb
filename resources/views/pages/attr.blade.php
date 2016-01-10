@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('content')
+    <script src="js/script.js"></script>
     <div class="well text-center">
         <h2>Browse Residual Feed Intake Database</h2>
     </div>
@@ -34,6 +35,52 @@
                 </div>
             </div>
         @endforeach
+
+        <div class="form-group">
+            <div><h3>Filters</h3></div>
+
+
+            <table id="conTable" class="form" border="0">
+                <tbody>
+                <tr>
+                    <td >
+                        {!! Form::label('name', 'Logic') !!}<br>
+                        {!! Form::input('text', 'logic[]', null,
+                                            array('required'=>'required',
+                                                    'class' => 'form-control',
+                                                    'placeholder'=>'input \'AND\', \'OR\'')) !!}
+                    </td>
+                    <td >
+                        {!! Form::label('name', 'Expression') !!}<br>
+                        {!! Form::input('text', 'expr[]', null, array('required'=>'required', 'class' => 'form-control')) !!}
+                    </td>
+                    <td >
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <table id="buttonTable" class="form" border="0">
+                <tbody>
+                    <tr>
+                        <td >
+                            <input type="button" class="btn btn-default" value="Add Condition"
+                                   onClick="addRow('conTable')"/>
+                        </td>
+                        <td >
+                            <input type="button" class="btn btn-default" value="Remove Condition"
+                                   onClick="deleteRow('conTable')"/>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
         <div class="form-group">
             {!! Form::submit('Submit',array('class' => 'btn btn-primary')) !!}
         </div>
