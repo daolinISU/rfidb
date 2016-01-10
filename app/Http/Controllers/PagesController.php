@@ -183,7 +183,7 @@ class PagesController extends Controller
         });
 
         //send email to inform administrator
-        Mail::send('email.request', $data, function($message) use (&$user) {
+        Mail::send('email.request', $data, function ($message) use (&$user) {
             $message->to(env('MAIL_USERNAME'), env('ADMIN_NAME'))
                 ->subject('Residual Feed Intake Database new account added');
         });
@@ -216,21 +216,19 @@ class PagesController extends Controller
         return Redirect::back()->withInput();
     }
 
-    public function getResetPass($id) {
+    public function getResetPass($id)
+    {
 //        dd("controller for user setting password");
         return view('auth/reset', compact('id'));
     }
 
 
-
-
-
     public function showDatabase()
     {
         $data = array(
-                    "lps",
-                    "others",
-                );
+            "lps",
+            "others",
+        );
         return view('pages.database', compact('data'));
     }
 
@@ -281,11 +279,17 @@ class PagesController extends Controller
 
     public function getResult(Request $resuest)
     {
-        $inputs = $resuest->except("_token")["attr"];
+        $allinputs = $resuest->except("_token");
+//        dd($allinputs);
+        if (!array_key_exists("attr", $allinputs)) return 'Please select at least one attribute';
+
+        $filter = false;
+        if (array_key_exists("filter", $allinputs)) $filter = true;
+//        dd($filter);
+//        dd(count($inputs));
+        $inputs = $allinputs["attr"];
+//        if (count($inputs) === 0) return 'Please select at least one attribute';
 //        dd($inputs);
-
-        if (count($inputs) === 0) return 'Please select at least one attribute';
-
 
         //get tables list in array $tables
         $tables = array();
@@ -297,7 +301,7 @@ class PagesController extends Controller
             if ($names[0] === "lps_rfi"
                 || $names[0] === "lps_inventory"
                 || $names[0] === "lps_rnaseq"
-                )
+            )
                 $flag = true;
             if ($names[0] != $tableTemp) {
                 $tableTemp = $names[0];
@@ -306,7 +310,7 @@ class PagesController extends Controller
         }
 //        dd($tables);
         $joinAttr = ".idpig";
-        if($flag)
+        if ($flag)
             $joinAttr = ".eartag";
 
 //        dd ($joinAttr);
@@ -320,7 +324,7 @@ class PagesController extends Controller
         $attribute_list = "";
         foreach ($inputs as $input) {
 //            dd($input);
-            $attribute_list = $attribute_list.$input.",";
+            $attribute_list = $attribute_list . $input . ",";
         }
         //trim: get rod of ","
         $attribute_list = rtrim($attribute_list, ",");
@@ -329,17 +333,24 @@ class PagesController extends Controller
 
         $query->selectRaw($attribute_list);
 //        dd($query->toSql());
-         //in case we need filters
-//        //add where clause
-//        for ($i = 0; $i < count($inputs["expr"]); ++$i) {
-//            $logic = strtolower(preg_replace('/\s+/', '', $inputs["logic"][$i]));
-//            //dd($logic);
-//            if ($logic === "and") {
-//                $query->whereRaw($inputs["expr"][$i]);
-//            } elseif ($logic === "or") {
-//                $query->orWhereRaw($inputs["expr"][$i]);
-//            }
-//        }
+        //in case we need filters
+        if ($filter) {
+            $expressions = $allinputs["expr"];
+            $logics = $allinputs["logic"];
+            //add where clause
+            for ($i = 0; $i < count($expressions); ++$i) {
+                $logic = strtolower(preg_replace('/\s+/', '', $logics[$i]));
+                //dd($logic);
+                if ($logic === "and") {
+                    $query->whereRaw($expressions[$i]);
+                } elseif ($logic === "or") {
+                    $query->orWhereRaw($expressions[$i]);
+                } else {
+                    return "filter logic can only be AND or OR";
+                }
+            }
+        }
+
         $results = $query->get();
 //        dd($results);
 //        dd($query->toSql());

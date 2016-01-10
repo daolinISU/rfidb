@@ -29,7 +29,8 @@
                     @foreach($data[$key] as $attr)
                         <div class="col-sm-4">
                             {!! Form::checkbox('attr[]', $key.'.'.$attr, false) !!}
-                            {!! Form::label($key.'.'.$attr) !!}
+{{--                            {!! Form::label($key.'.'.$attr) !!}--}}
+                            <label>{{$key}}.{{$attr}}</label>
                         </div>
                     @endforeach
                 </div>
@@ -37,7 +38,8 @@
         @endforeach
 
         <div class="form-group">
-            <div><h3>Filters</h3></div>
+            <div><h3>Filters</h3>{!! Form::checkbox('filter', 'yes') !!}
+                {!! Form::label('check this box if you want to apply filters') !!}</div>
 
 
             <table id="conTable" class="form" border="0">
@@ -46,13 +48,13 @@
                     <td >
                         {!! Form::label('name', 'Logic') !!}<br>
                         {!! Form::input('text', 'logic[]', null,
-                                            array('required'=>'required',
+                                            array(
                                                     'class' => 'form-control',
                                                     'placeholder'=>'input \'AND\', \'OR\'')) !!}
                     </td>
                     <td >
                         {!! Form::label('name', 'Expression') !!}<br>
-                        {!! Form::input('text', 'expr[]', null, array('required'=>'required', 'class' => 'form-control')) !!}
+                        {!! Form::input('text', 'expr[]', null, array( 'class' => 'form-control')) !!}
                     </td>
                     <td >
 
@@ -69,7 +71,7 @@
                                    onClick="addRow('conTable')"/>
                         </td>
                         <td >
-                            <input type="button" class="btn btn-default" value="Remove Condition"
+                            &nbsp<input type="button" class="btn btn-default" value="Remove Condition"
                                    onClick="deleteRow('conTable')"/>
                         </td>
                         <td>
