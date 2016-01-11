@@ -10,26 +10,41 @@
 
         <h4>Updates</h4>
         <ul style="list-style-type:circle">
+            <li><b>01/11/2016:</b>
+                <ul>
+                    <li>fix table and attributes name upper case to lower case, show underscore.</li>
+                </ul>
+            </li>
+            <li><b>01/09/2016:</b>
+                <ul>
+                    <li>Add filter to basic search.</li>
+                </ul>
+            </li>
+            <li><b>01/06/2016:</b>
+                <ul>
+                    <li>Add browse database to Basic search. Now tables without pig id can be queried as well.</li>
+                </ul>
+            </li>
             <li><b>12/28/2015:</b>
-                <ol>
+                <ul>
                     <li>User can changge password through user profile -> reset password. Email will be sent to notify user.</li>
-                </ol>
+                </ul>
             </li>
             <li><b>12/22/2015:</b>
-                <ol>
+                <ul>
                     <li>Reset password through email. Reset link expires once get clicked.</li>
-                </ol>
+                </ul>
             </li>
             <li><b>12/15/2015:</b>
-                <ol>
+                <ul>
                     <li>Browse database through list of tables and their attributes with multiple selection</li>
-                </ol>
+                </ul>
             </li>
             <li><b>12/12/2015:</b>
-                <ol>
+                <ul>
                     <li>Export to excel in query results</li>
                     <li>Export to csv in query results</li>
-                </ol>
+                </ul>
             </li>
         </ul>
     </div>

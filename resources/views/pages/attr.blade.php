@@ -19,6 +19,7 @@
 
         <p>for help with tables and attributes description, click <a href="/pdf">here</a></p>
     </div>
+    <?php $example = ""; $exampleGot = false;?>
     <div class="well">
         {!! Form::open(array('url' => 'browseResult'))!!}
         <h3>Select attributes you would like to include: </h3>
@@ -31,6 +32,11 @@
                             {!! Form::checkbox('attr[]', $key.'.'.$attr, false) !!}
 {{--                            {!! Form::label($key.'.'.$attr) !!}--}}
                             <label>{{$key}}.{{$attr}}</label>
+                            <?php if (!$exampleGot) {
+                                $example = $key.".".$attr;
+                                $exampleGot = true;
+                            }
+                                ?>
                         </div>
                     @endforeach
                 </div>
@@ -40,7 +46,7 @@
         <div class="form-group">
             <div><h3>Filters</h3>{!! Form::checkbox('filter', 'yes') !!}
                 {!! Form::label('check this box if you want to apply filters') !!}</div>
-
+<p> Expression should be: attribute operator value. for example: <b>{{$example}} >= 200</b> </p>
 
             <table id="conTable" class="form" border="0">
                 <tbody>

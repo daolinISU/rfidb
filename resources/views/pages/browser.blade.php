@@ -14,7 +14,8 @@
                 @foreach ($tables as $table)
                     <div class="col-sm-3">
                         {!! Form::checkbox('table[]', $table, false) !!}
-                        {!! Form::label($table) !!}
+                        <label>{{$table}}</label>
+                        {{--{!! Form::label($table) !!}--}}
                     </div>
                 @endforeach
             </div>

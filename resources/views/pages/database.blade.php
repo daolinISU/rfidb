@@ -13,7 +13,7 @@
         {!! Form::open(array('url' => 'database'))!!}
         <div class="form-group">
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     {!! Form::select('database', array($data[0] => $data[0], $data[1] => $data[1])) !!}
                     {{--                    {!! Form::select('database', array($data[0] => $data[0], $data[1] => $data[1], '{{ $data[0] }}') !!}--}}
                 </div>

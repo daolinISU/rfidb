@@ -348,10 +348,15 @@ class PagesController extends Controller
                 } else {
                     return "filter logic can only be AND or OR";
                 }
+                if(!$expressions[$i]) return "invalid expression input!";
             }
         }
-
-        $results = $query->get();
+        try{
+            $results = $query->get();
+        }catch(\Exception $e) {
+            return "Your request failed, please check your search parameters.";
+        }
+//        $results = $query->get();
 //        dd($results);
 //        dd($query->toSql());
         return view('pages.queryResults', compact('results'));
