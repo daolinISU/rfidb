@@ -105,6 +105,25 @@ class PagesController extends Controller
         return view('errors.notdone');
     }
 
+    public function advancedSearchForm()
+    {
+        return view('pages.sqlSearch');
+    }
+
+    public function sqlQuery(Request $resuqest)
+    {
+//        dd($resuqest->except("_token")["sqlScript"]);
+        $script = $resuqest->except("_token")["sqlScript"];
+        //excute sql
+//        $results = DB::select($script);
+        try{
+            $results = DB::select($script);
+        }catch(\Exception $e) {
+            return "Your request failed, please check your search parameters.";
+        }
+        return view('pages.queryResults', compact('results'));
+    }
+
     public function advanceQueryForm()
     {
         return view('pages.advanceQueryForm');
@@ -361,4 +380,5 @@ class PagesController extends Controller
 //        dd($query->toSql());
         return view('pages.queryResults', compact('results'));
     }
+
 }

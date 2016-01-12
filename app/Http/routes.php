@@ -19,8 +19,10 @@ Route::post('carcassQuery', 'PagesController@carcassQuery');
 
 
 Route::get('advanceQueryForm', ['middleware' => 'auth', 'uses' => 'PagesController@advanceQueryForm']);
-Route::post('queryResults', 'PagesController@queryResults');
+Route::post('queryResults', ['middleware' => 'auth', 'uses' => 'PagesController@@queryResults']);
 
+Route::get('advancedSearch', ['middleware' => 'auth', 'uses' => 'PagesController@advancedSearchForm']);
+Route::post('advancedSearch', ['middleware' => 'auth', 'uses' => 'PagesController@sqlQuery']);
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

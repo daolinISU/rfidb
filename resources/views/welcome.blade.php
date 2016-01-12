@@ -10,6 +10,12 @@
 
         <h4>Updates</h4>
         <ul style="list-style-type:circle">
+            <li><b>01/12/2016:</b>
+                <ul>
+                    <li>Change advanced search to using MySQL script directly</li>
+                    <li>Hint when illigal query is requested in both search</li>
+                </ul>
+            </li>
             <li><b>01/11/2016:</b>
                 <ul>
                     <li>fix table and attributes name upper case to lower case, show underscore.</li>
