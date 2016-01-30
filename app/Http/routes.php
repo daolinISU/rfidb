@@ -87,7 +87,9 @@ Route::get('contact', function(){
     return view('pages.contact');
 });
 
-
+Route::get('tables', function(){
+    return view('pages.tables');
+});
 
 
 

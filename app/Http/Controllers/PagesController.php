@@ -296,9 +296,9 @@ class PagesController extends Controller
         return view('pages.attr', compact('data'));
     }
 
-    public function getResult(Request $resuest)
+    public function getResult(Request $request)
     {
-        $allinputs = $resuest->except("_token");
+        $allinputs = $request->except("_token");
 //        dd($allinputs);
         if (!array_key_exists("attr", $allinputs)) return 'Please select at least one attribute';
 
