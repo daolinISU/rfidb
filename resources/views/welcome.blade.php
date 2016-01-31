@@ -12,6 +12,12 @@
         <ul style="list-style-type:circle">
             <li><b>01/12/2016:</b>
                 <ul>
+                    <li>Select all attribute for each table</li>
+                    <li>Contact added</li>
+                </ul>
+            </li>
+            <li><b>01/12/2016:</b>
+                <ul>
                     <li>Change advanced search to using MySQL script directly</li>
                     <li>Hint when illigal query is requested in both search</li>
                 </ul>

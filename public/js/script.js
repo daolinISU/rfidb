@@ -52,3 +52,32 @@ function deleteRow(tableID) {
 	//	}
 	//}
 }
+
+function checkAll(ele) {
+	var checkboxes = document.getElementsByTagName('input');
+	//alert(input);
+	//dd(checkboxes);
+	if (ele.checked) {
+		//alert("checked");
+		for (var i = 0; i < checkboxes.length; i++) {
+			if (checkboxes[i].type == 'checkbox') {
+				checkboxes[i].checked = true;
+			}
+		}
+	} else {
+		//alert("unchecked");
+		for (var i = 0; i < checkboxes.length; i++) {
+			console.log(i)
+			if (checkboxes[i].type == 'checkbox') {
+				checkboxes[i].checked = false;
+			}
+		}
+	}
+}
+
+function toggle(source,classname) {
+	var checkboxes = document.getElementsByClassName(classname);
+	for(var i=0, n=checkboxes.length;i<n;i++) {
+		checkboxes[i].checked = source.checked;
+	}
+}

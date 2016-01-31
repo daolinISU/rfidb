@@ -27,10 +27,14 @@
             <div class="form-group">
                 <div class="row">
                     <h4>Attributes in Table {{$key}}</h4>
+                    <p>{!! Form::checkbox('selectAll', null, false ,array('onClick'=> 'toggle(this,\''.$key.'\')')) !!}
+                    <label>select all in this table</label></p>
                     @foreach($data[$key] as $attr)
                         <div class="col-sm-4">
-                            {!! Form::checkbox('attr[]', $key.'.'.$attr, false) !!}
-{{--                            {!! Form::label($key.'.'.$attr) !!}--}}
+                            {{-- //add id field for select all
+                            {!! Form::checkbox('attr[]', $key.'.'.$attr, false) !!}--}}
+                            {!! Form::checkbox('attr[]', $key.'.'.$attr, false ,array('class'=>$key)) !!}
+{{--                            {!! Form::label($key.'.'.$attr) !!} //this lable auto formats text --}}
                             <label>{{$key}}.{{$attr}}</label>
                             <?php if (!$exampleGot) {
                                 $example = $key.".".$attr;
