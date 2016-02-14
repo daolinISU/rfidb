@@ -81,7 +81,7 @@
                 <li><a href="http://www.swinefeedefficiency.com/isurfiproject.html">Overview</a></li>
                 <li><a href="/database">Search</a></li>
                 <li><a href="/advancedSearch">Advanced Search</a></li>
-                <li><a href="/wait">Frequently Asked Questions</a></li>
+                <li><a href="/faq">Frequently Asked Questions</a></li>
                 <li><a href="/contact">Contact Us</a></li>
             </ul>
 

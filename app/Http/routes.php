@@ -91,6 +91,10 @@ Route::get('tables', function(){
     return view('pages.tables');
 });
 
+Route::get('faq', function(){
+    return view('pages.faq');
+});
+
 
 
 //==========================================================
