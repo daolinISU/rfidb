@@ -7,7 +7,7 @@
     <div class="well">
         <h3>Select tables:</h3>
 
-        <p>for help with tables and attributes description, click <a href="/pdf">here</a></p>
+        <p>for help with tables and attributes description, click <a href="/tables">here</a></p>
         {!! Form::open(array('url' => 'browseTable'))!!}
         <div class="form-group">
             <div class="row">

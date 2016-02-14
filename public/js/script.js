@@ -81,3 +81,9 @@ function toggle(source,classname) {
 		checkboxes[i].checked = source.checked;
 	}
 }
+
+function toggle_messege(type) {
+	document.getElementById("div_messege").style.display = type;
+	document.getElementById("hreh_close").style.display = type;
+
+}

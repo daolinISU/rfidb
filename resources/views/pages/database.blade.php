@@ -9,7 +9,7 @@
 
         <p>lps includes 3 tables: lps_rfi, lps_inventory and lps_rnaseq. The rest tables are in the other database.</p>
 
-        <p>for help with tables and attributes description, click <a href="/pdf">here</a></p>
+        <p>for help with tables and attributes description, click <a href="/tables">here</a></p>
         {!! Form::open(array('url' => 'database'))!!}
         <div class="form-group">
             <div class="row">

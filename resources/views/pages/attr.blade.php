@@ -17,7 +17,7 @@
             </b>
         </p>
 
-        <p>for help with tables and attributes description, click <a href="/pdf">here</a></p>
+        <p>for help with tables and attributes description, click <a href="/tables">here</a></p>
     </div>
     <?php $example = ""; $exampleGot = false;?>
     <div class="well">
