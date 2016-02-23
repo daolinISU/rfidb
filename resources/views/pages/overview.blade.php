@@ -4,49 +4,22 @@
     <div class="well">
 
         <div class="padded">
-            <h2>RFI Project</h2>
-            <p>&nbsp;</p>
             <h1>ISU Residual Feed Intake Project</h1>
             <p>&nbsp;</p>
-            <table summary="RFI Project" border="0" cellpadding="10" width="100%">
-                <tbody>
-                <tr>
-                    <td valign="top" width="50%"><h1><a name="group" id="group"></a>ISU RFI group</h1>
-                        <p>Jack Dekkers (Animal Breeding and Genetics)<br>
-                            Lloyd Anderson (Animal Physiology)<br>
-                            Anna Butters-Johnson (Animal Physiology)<br>
-                            Nick Gabler (Animal Nutrition) <br>
-                            Elisabeth Huff-Lonergan (Meat Science)<br>
-                            Steven Lonergan (Meat Science)<br>
-                            Dan Nettleton (Statistics) <br>
-                            John Patience (Animal Nutrition)<br>
-                            Max Rothschild (Animal Breeding and Genetics)<br>
-                            Chris Tuggle (Animal Breeding and Genetics)<br>
-                            Farm management and staff at Madrid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
-                    <td valign="top" width="50%">
-                        <h1><a name="collaborators" id="collaborators"></a>Collaborators</h1>
-                        <h4>ISU Departments</h4>
-                        <p>Statistics<br>
-                            Computer Science </p>
-                        <h4>External US</h4>
-                        <p> USDA-ARS, Ames<br>
-                            USDA-ARS, Georgia<br>
-                            University of Georgia<br>
-                            Kansas State University<br>
-                            Michigan State University</p>
-                        <h4>International</h4>
-                        <p> INRA, France<br>
-                            University of New England, Australia<br>
-                            Institute for Pig Genetics, The Netherlands<br>
-                            Wageningen University, The Netherlands<br>
-                            University of Melbourne, Australia<br>
-                            Pork CRC, Australia<br>
-                            University of Saskatchewan</p></td>
-                </tr>
-                </tbody>
-            </table>
+            <h2>RFI project highlights</h2>
+            <p>Statistics of this project</p>
+
+
+            <ul style="list-style-type:circle">
+                <li>Animals in RFI project: <b>18012</b></li>
+                <li>Animals with RFI data collected: <b>2461</b></li>
+                <li>Animals  with SNP60 genotypes collected: <b>2799</b></li>
+                <li>Animals  with RFI data AND SNP60 genotypes: <b>1900</b></li>
+            </ul>
+
+
             <p>&nbsp;</p>
-            <h1><a name="outputs" id="outputs"></a>RFI project outputs</h1>
+            <h2><a name="outputs" id="outputs"></a>RFI project outputs</h2>
             <h3>Training</h3>
             <p>&nbsp;</p>
             <table summary="RFI project outputs" border="0" cellpadding="10" width="100%">
@@ -100,7 +73,7 @@
                 </tbody>
             </table>
             <h4>&nbsp;</h4>
-            <h1><a name="grants" id="grants"></a>External grants generated in association with RFI project</h1>
+            <h2><a name="grants" id="grants"></a>External grants generated in association with RFI project</h2>
             <p>&nbsp;</p>
             <table border="1" cellpadding="10" cellspacing="0" width="100%">
                 <tbody>
@@ -351,7 +324,6 @@
             <p></p>
             <p>&nbsp;</p>
         </div>
-
     </div>
 
 @endsection

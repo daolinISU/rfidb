@@ -41,7 +41,7 @@
                 <li><a href="/browseTable">Search</a></li>
                 <li><a href="/advancedSearch">Advanced Search</a></li>
                 <li><a href="/faq">Frequently Asked Questions</a></li>
-                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/contact">People</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

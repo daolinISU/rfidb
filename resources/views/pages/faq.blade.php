@@ -120,9 +120,8 @@
 
     <div class="well">
         <h1>Frequently Asked Questions</h1>
-        <h3>Please click expand/collapse to view/hide the answer to the question.</h3>
-    </div>
-    <div class="well">
+        <p>Please click expand/collapse to view/hide the answer to the question.</p>
+
         <h2>What is in the database?</h2>
         <p>RFI database.</p>
         <h2>What if basic search does not have results I need?</h2>

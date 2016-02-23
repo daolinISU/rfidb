@@ -120,9 +120,8 @@
 
     <div class="well">
         <h1>Tables in RFI database and their description</h1>
-        <h3>Please click expand/collapse to view/hide what is in the table</h3>
-    </div>
-    <div class="well">
+        <p>Please click expand/collapse to view/hide what is in the table</p>
+
         <h2>Table: id</h2>
         <p></p>
         <table class="table table-striped">
