@@ -65,13 +65,15 @@ Route::post('user/create', 'Auth\UserController@createNewUser');
 
 
 
-//browse database
+/*//browse database
+No longer needed since we found pigid in lps
 Route::get('database', ['middleware' => ['auth'], 'uses' => 'PagesController@showDatabase']);
-Route::post('database', ['middleware' => ['auth'], 'uses' => 'PagesController@showTable']);
-//Route::get('browser', ['middleware' => ['auth'], 'uses' => 'PagesController@showTable']);
+Route::post('database', ['middleware' => ['auth'], 'uses' => 'PagesController@showTable']);*/
+Route::get('browseTable', ['middleware' => ['auth'], 'uses' => 'PagesController@showTable']);
 Route::post('browseTable', ['middleware' => ['auth'], 'uses' => 'PagesController@getAttr']);
 Route::post('browseResult', ['middleware' => ['auth'], 'uses' => 'PagesController@getResult']);
 
+// prf description, not shown
 Route::get('pdf', function(){
     $filename = '/../resources/pdf/tables.pdf';
     $path = storage_path().DIRECTORY_SEPARATOR.$filename;
@@ -93,6 +95,10 @@ Route::get('tables', function(){
 
 Route::get('faq', function(){
     return view('pages.faq');
+});
+
+Route::get('overview', function(){
+    return view('pages.overview');
 });
 
 

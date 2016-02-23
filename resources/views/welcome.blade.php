@@ -7,9 +7,22 @@
         <br>
     </div>
     <div class="well">
-
         <h4>Updates</h4>
         <ul style="list-style-type:circle">
+            <li><b>02/22/2016:</b>
+                <ul>
+                    <li>Update database with lps table, combined with three lps-related tables</li>
+                    <li>New search function.</li>
+                </ul>
+            </li>
+            <li><b>02/16/2016:</b>
+                <ul>
+                    <li>Update database with updated pigids in table lps_rfi.</li>
+                    <li>New overview, no outlink.</li>
+                    <li>Table description page with all attributes and expand/collapse features.</li>
+                    <li>Frequently asked questions/FAQ page</li>
+                </ul>
+            </li>
             <li><b>01/12/2016:</b>
                 <ul>
                     <li>Select all attribute for each table</li>

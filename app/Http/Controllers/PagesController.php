@@ -114,8 +114,7 @@ class PagesController extends Controller
     {
 //        dd($resuqest->except("_token")["sqlScript"]);
         $script = $resuqest->except("_token")["sqlScript"];
-        //excute sql
-//        $results = DB::select($script);
+
         try{
             $results = DB::select($script);
         }catch(\Exception $e) {
@@ -253,7 +252,7 @@ class PagesController extends Controller
 
     public function showTable(Request $resuest)
     {
-        $inputs = $resuest->except("_token");
+//        $inputs = $resuest->except("_token");
 //        dd($inputs["database"]);
         $tablelist = DB::select('SHOW TABLES');
 //        dd($tables);
@@ -262,7 +261,7 @@ class PagesController extends Controller
             array_push($tables, $table->Tables_in_rfidb);
         }
 //        dd($tables);
-        if ($inputs["database"] === "lps") {
+        /*if ($inputs["database"] === "lps") {
             $tables = array("lps_rfi",
                 "lps_inventory",
                 "lps_rnaseq",);
@@ -275,7 +274,12 @@ class PagesController extends Controller
                 "password_resets",
                 "migrations",
             ));
-        }
+        }*/
+        $tables = array_diff($tables, array(
+            "users",
+            "password_resets",
+            "migrations",
+        ));
 //        dd($tables);
         return view('pages.browser', compact('tables'));
     }
@@ -312,32 +316,44 @@ class PagesController extends Controller
 
         //get tables list in array $tables
         $tables = array();
+        //only add table when this variable changes, so tables won't have duplicate values
         $tableTemp = "";
-        $flag = false;
+//        $flag = false;
         foreach ($inputs as $input) {
 //            dd($input);
             $names = explode(".", $input);
-            if ($names[0] === "lps_rfi"
+ /*           if ($names[0] === "lps_rfi"
                 || $names[0] === "lps_inventory"
                 || $names[0] === "lps_rnaseq"
             )
-                $flag = true;
+                $flag = true;*/
             if ($names[0] != $tableTemp) {
                 $tableTemp = $names[0];
                 array_push($tables, $names[0]);
             }
         }
 //        dd($tables);
-        $joinAttr = ".idpig";
-        if ($flag)
-            $joinAttr = ".eartag";
+        $joinAttr1 = ".idpig";
+        $joinAttr2 = "";
+
+//        if ($flag)
+//            $joinAttr = ".eartag";
 
 //        dd ($joinAttr);
-
+        if($tables[0] == "dam_mate")
+            $joinAttr1 = ".iddam";
         $query = DB::table($tables[0]);
         //inner join tables
+        $lps_rfiAdded = false;
         for ($i = 1; $i < count($tables); ++$i) {
-            $query->join($tables[$i], $tables[0] . $joinAttr, "=", $tables[$i] . $joinAttr);
+            //join table[i] accordingly
+            if($tables[$i] == "dam_mate") {
+                $joinAttr2 = ".iddam";
+            } else {
+                $joinAttr2 = ".idpig";
+            }
+
+            $query->join($tables[$i], $tables[0] . $joinAttr1, "=", $tables[$i] . $joinAttr2);
         }
         //Select attribute list
         $attribute_list = "";
@@ -372,12 +388,13 @@ class PagesController extends Controller
         }
         try{
             $results = $query->get();
-        }catch(\Exception $e) {
+        }
+        catch(\Exception $e) {
             return "Your request failed, please check your search parameters.";
         }
 //        $results = $query->get();
 //        dd($results);
-//        dd($query->toSql());
+        dd($query->toSql());
         return view('pages.queryResults', compact('results'));
     }
 
