@@ -394,7 +394,7 @@ class PagesController extends Controller
         }
 //        $results = $query->get();
 //        dd($results);
-        dd($query->toSql());
+//        dd($query->toSql());
         return view('pages.queryResults', compact('results'));
     }
 
