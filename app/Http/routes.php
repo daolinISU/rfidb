@@ -41,6 +41,12 @@ Route::get('auth/postRegister', ['middleware' => 'auth', 'uses' => 'PagesControl
 
 Route::get('register/verify/{activation_code}', 'PagesController@confirm');
 
+//Route::get('register/approval/{id}', function(){
+//    return "hello";
+//});
+
+Route::get('register/approval/{id}', ['middleware' => ['admin'], 'uses' =>'PagesController@approval']);
+
 //update profile
 Route::get('auth/profile/{id}', ['middleware' => 'auth', 'uses' => 'PagesController@profile']);
 Route::post('auth/{id}/edit', ['middleware' => ['auth'], 'uses' => 'PagesController@update']);
@@ -49,7 +55,7 @@ Route::get('auth/{id}/resetPass', ['middleware' => ['auth'], 'uses' => 'PagesCon
 Route::post('auth/{id}/resetPass', ['middleware' => ['auth'], 'uses' => 'PagesController@resetPass']);
 
 
-Route::get('register/approval/{id}', 'Auth\AuthController@approval');
+//Route::get('register/approval/{id}', 'Auth\AuthController@approval');
 Route::get('admin/dash', ['middleware' => ['admin'], 'uses' => 'Auth\AdminController@dash']);
 
 Route::delete('user/{id}/delete', ['middleware' => ['admin'], 'uses' => 'Auth\UserController@destroy']);

@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Your Message Subject or Title</title>
     <style type="text/css">
@@ -15,12 +15,37 @@
         INLINE: Yes.
         ***********/
         /* Client-specific Styles */
-        #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
-        body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+        #outlook a {
+            padding: 0;
+        }
+
+        /* Force Outlook to provide a "view in browser" menu link. */
+        body {
+            width: 100% !important;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
-        .ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
-        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
-        #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+        .ExternalClass {
+            width: 100%;
+        }
+
+        /* Force Hotmail to display emails at full width */
+        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+            line-height: 100%;
+        }
+
+        /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+        #backgroundTable {
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            line-height: 100% !important;
+        }
+
         /* End reset */
 
         /* Some sensible defaults for images
@@ -30,29 +55,45 @@
 
         Bring inline: Yes.
         */
-        img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
-        a img {border:none;}
-        .image_fix {display:block;}
+        img {
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a img {
+            border: none;
+        }
+
+        .image_fix {
+            display: block;
+        }
 
         /** Yahoo paragraph fix: removes the proper spacing or the paragraph (p) tag. To correct we set the top/bottom margin to 1em in the head of the document. Simple fix with little effect on other styling. NOTE: It is also common to use two breaks instead of the paragraph tag but I think this way is cleaner and more semantic. NOTE: This example recommends 1em. More info on setting web defaults: http://www.w3.org/TR/CSS21/sample.html or http://meiert.com/en/blog/20070922/user-agent-style-sheets/
 
         Bring inline: Yes.
         **/
-        p {margin: 1em 0;}
+        p {
+            margin: 1em 0;
+        }
 
         /** Hotmail header color reset: Hotmail replaces your header color styles with a green color on H2, H3, H4, H5, and H6 tags. In this example, the color is reset to black for a non-linked header, blue for a linked header, red for an active header (limited support), and purple for a visited header (limited support).  Replace with your choice of color. The !important is really what is overriding Hotmail's styling. Hotmail also sets the H1 and H2 tags to the same size.
 
         Bring inline: Yes.
         **/
-        h1, h2, h3, h4, h5, h6 {color: black !important;}
+        h1, h2, h3, h4, h5, h6 {
+            color: black !important;
+        }
 
-        h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: blue !important;}
+        h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+            color: blue !important;
+        }
 
-        h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+        h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active, h6 a:active {
             color: red !important; /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
         }
 
-        h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+        h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
             color: purple !important; /* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */
         }
 
@@ -61,11 +102,15 @@
         More info: http://www.ianhoar.com/2008/04/29/outlook-2007-borders-and-1px-padding-on-table-cells/
         http://www.campaignmonitor.com/blog/post/3392/1px-borders-padding-on-table-cells-in-outlook-07/
 
-        H/T @edmelly
+        H/T
+        @edmelly
 
-		Bring inline: No.
-		**/
-        table td {border-collapse: collapse;}
+
+        Bring inline: No.
+                **/
+        table td {
+            border-collapse: collapse;
+        }
 
         /** Remove spacing around Outlook 07, 10 tables
 
@@ -73,12 +118,18 @@
 
         Bring inline: Yes
         **/
-        table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
 
         /* Styling your links has become much simpler with the new Yahoo.  In fact, it falls in line with the main credo of styling in email, bring your styles inline.  Your link colors will be uniform across clients when brought inline.
 
         Bring inline: Yes. */
-        a {color: orange;}
+        a {
+            color: orange;
+        }
 
         /* Or to go the gold star route...
         a:link { color: orange; }
@@ -128,7 +179,6 @@
 
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
             /* You guessed it, ipad (tablets, smaller screens, etc) */
-
             /* Step 1a: Repeating for the iPad */
             a[href^="tel"], a[href^="sms"] {
                 text-decoration: none;
@@ -152,15 +202,18 @@
         /* Following Android targeting from:
         http://developer.android.com/guide/webapps/targeting.html
         http://pugetworks.com/2011/04/css-media-queries-for-targeting-different-mobile-devices/  */
-        @media only screen and (-webkit-device-pixel-ratio:.75){
+        @media only screen and (-webkit-device-pixel-ratio: .75) {
             /* Put CSS for low density (ldpi) Android layouts in here */
         }
-        @media only screen and (-webkit-device-pixel-ratio:1){
+
+        @media only screen and (-webkit-device-pixel-ratio: 1) {
             /* Put CSS for medium density (mdpi) Android layouts in here */
         }
-        @media only screen and (-webkit-device-pixel-ratio:1.5){
+
+        @media only screen and (-webkit-device-pixel-ratio: 1.5) {
             /* Put CSS for high density (hdpi) Android layouts in here */
         }
+
         /* end Android targeting */
     </style>
 
@@ -219,16 +272,28 @@
     </tr>
     <tr>
         <td>
-            <h2>Please follow the link below to administrator dashboard (you might need to login with administrator account):</h2>
+            <h2>Please click the following the link below to approve the new user: (you might need to login with
+                administrator account):</h2>
+            <h3><a href={{ URL::to('register/approval/' . $id) }} target ="_blank"
+                title="to administrator dashboard" style="color: blue
+                ;
+                    text-decoration: none
+                ;">Link for account approval</a>
+            </h3>
+
             <h3><a href={{ URL::to('admin/dash') }} target ="_blank"
-            title="to administrator dashboard" style="color: blue; text-decoration: none;">Link for administrator dashboard</a>
+                title="to administrator dashboard" style="color: blue
+                ;
+                    text-decoration: none
+                ;">Link for administrator dashboard</a>
             </h3>
             <p>You can also add, delete or edit all users there.</p>
         </td>
     </tr>
     <tr>
         <td>
-            <h2>You will need administrator's username and password. If you received this email by mistake, please let us know.</h2>
+            <h2>You will need administrator's username and password. If you received this email by mistake, please let
+                us know.</h2>
         </td>
     </tr>
 </table>

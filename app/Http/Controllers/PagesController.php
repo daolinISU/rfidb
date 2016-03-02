@@ -180,6 +180,48 @@ class PagesController extends Controller
         }
 
         $user->activation_code = "";
+        //$user->status = 1;
+        $user->save();
+
+
+        $data = array(
+            'id' => $user->id,
+            'email' => $user->email,
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'organization' => $user->organization,
+            'reason' => $user->reason,
+        );
+
+
+//        //send email to user
+//        Mail::send('email.activated', $data, function ($message) use (&$user) {
+//            $message->to($user->email, $user->first_name . " " . $user->last_name)
+//                ->subject('Residual Feed Intake Registration email address confirmed');
+//        });
+
+        //send email to inform administrator
+        Mail::send('email.request', $data, function ($message) use (&$user) {
+            $message->to(env('MAIL_USERNAME'), env('ADMIN_NAME'))
+                ->subject('Residual Feed Intake Database account registration request');
+        });
+
+
+        return view('auth/confirm');
+    }
+
+    public function approval($id)
+    {
+
+        $user = User::where('id', $id)->first();
+
+//        dd($user);
+
+        if ( ! $user)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
         $user->status = 1;
         $user->save();
 
@@ -195,20 +237,17 @@ class PagesController extends Controller
 
 
         //send email to user
-        Mail::send('email.activated', $data, function ($message) use (&$user) {
-            $message->to($user->email, $user->first_name . " " . $user->last_name)
-                ->subject('Residual Feed Intake Registration email address confirmed');
-        });
-
-        //send email to inform administrator
-        Mail::send('email.request', $data, function ($message) use (&$user) {
-            $message->to(env('MAIL_USERNAME'), env('ADMIN_NAME'))
-                ->subject('Residual Feed Intake Database new account added');
+        Mail::send('email.activated', $data, function($message) use (&$user) {
+            $message->to($user->email, $user->first_name." ".$user->last_name)
+                ->subject('RFIDB: Account application approved');
         });
 
 
-        return view('auth/confirm');
+        return Redirect::action('Auth\AdminController@dash');
     }
+
+
+
 
     public function profile($id)
     {

@@ -101,9 +101,11 @@ class AuthController extends Controller
 
     public function approval($id)
     {
-
+        return "hello";
 
         $user = User::where('id', $id)->first();
+
+        dd($user);
 
         if ( ! $user)
         {
@@ -124,7 +126,7 @@ class AuthController extends Controller
         );
 
 
-        //send email to administrator
+        //send email to user
         Mail::send('email.activated', $data, function($message) use (&$user) {
             $message->to($user->email, $user->first_name." ".$user->last_name)
                 ->subject('RFIDB: Account application approved');
