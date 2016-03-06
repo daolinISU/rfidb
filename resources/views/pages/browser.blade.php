@@ -7,7 +7,12 @@
     <div class="well">
         <h3>Select tables:</h3>
 
-        <p>for help with tables and attributes description, click <a href="/tables">here</a></p>
+        <p>for help with tables and attributes description, click
+            <a href="/tables"
+               onclick="window.open('/tables', 'Popup', 'resizable=1,scrollbars=yes,width=1000,height=800'); return false;" >
+                here
+            </a>
+        </p>
         {!! Form::open(array('url' => 'browseTable'))!!}
         <div class="form-group">
             <div class="row">

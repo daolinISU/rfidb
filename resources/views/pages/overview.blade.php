@@ -7,19 +7,31 @@
             <h1>ISU Residual Feed Intake Project</h1>
             <p>&nbsp;</p>
             <h2>RFI project highlights</h2>
-            <p>Statistics of this project</p>
+            <h3>Statistics of this project</h3>
 
 
-            <ul style="list-style-type:circle">
-                <li>Animals in RFI project: <b>18012</b></li>
-                <li>Animals with RFI data collected: <b>2461</b></li>
-                <li>Animals  with SNP60 genotypes collected: <b>2799</b></li>
-                <li>Animals  with RFI data AND SNP60 genotypes: <b>1900</b></li>
+            <ul style="font-size:18px;">
+                <li>Animals in RFI project:
+                    <span style="font-family:Helvetica;font-size:24px;color:#cb1a2a;background-color:#dfbd00;">18012</span>
+                </li>
+                <li>Animals with RFI data collected:
+                    <span style="font-family:Helvetica;font-size:24px;color:#cb1a2a;background-color:#dfbd00;">2461</span>
+                </li>
+                <li>Animals with SNP60 genotypes collected:
+                    <span style="font-family:Helvetica;font-size:24px;color:#cb1a2a;background-color:#dfbd00;">2799</span>
+                </li>
+                <li>Animals with RFI data AND SNP60 genotypes: <span
+                            style="font-family:Helvetica;font-size:24px;color:#cb1a2a;background-color:#dfbd00;">1900</span>
+                </li>
             </ul>
 
 
             <p>&nbsp;</p>
-            <h2><a name="outputs" id="outputs"></a>RFI project outputs</h2>
+
+            <h3>For more information please visit <a href="http://www.swinefeedefficiency.com">
+                    www.swinefeedefficiency.com</a></h3>
+
+            {{--<h2><a name="outputs" id="outputs"></a>RFI project outputs</h2>
             <h3>Training</h3>
             <p>&nbsp;</p>
             <table summary="RFI project outputs" border="0" cellpadding="10" width="100%">
@@ -322,7 +334,7 @@
                     Publications associated with research and grants based on the ISU RFI
                     lines</a></h3>
             <p></p>
-            <p>&nbsp;</p>
+            <p>&nbsp;</p>--}}
         </div>
     </div>
 
