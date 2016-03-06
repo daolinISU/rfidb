@@ -28,7 +28,14 @@
 
             <p>&nbsp;</p>
 
-            <h3>For more information please visit <a href="http://www.swinefeedefficiency.com">
+            <h3>To see what is in this database, click
+                <a href="/tables"
+                   onclick="window.open('/tables', 'Popup', 'resizable=1,scrollbars=yes,width=1000,height=800'); return false;" >
+                    here
+                </a>
+            </h3>
+            <p>&nbsp;</p>
+            <h3>For more information about this project please visit <a href="http://www.swinefeedefficiency.com">
                     www.swinefeedefficiency.com</a></h3>
 
             {{--<h2><a name="outputs" id="outputs"></a>RFI project outputs</h2>
