@@ -123,9 +123,35 @@
         <p>Please click expand/collapse to view/hide the answer to the question.</p>
 
         <h2>What is in the database?</h2>
-        <p>RFI database.</p>
+        <p>Some facts about RFI database are listed <a href="/overview">here</a>. To see what is in this database, click
+            <a href="/tables"
+               onclick="window.open('/tables', 'Popup', 'resizable=1,scrollbars=yes,width=1000,height=800'); return false;">
+                here
+            </a></p>
         <h2>What if basic search does not have results I need?</h2>
         <p>You can run your own SQL script in <a href="/advancedSearch">Advanced Search</a>.</p>
+
+        <h2>How do I get maximum value of a column?</h2>
+        <p>In advanced search page, input:
+        <pre>
+            SELECT MAX(attribut_name) FROM table_name;</pre>
+        "attribut_name" is the column name, "table_name" is the table you need.
+        </p>
+
+        <h2>How do I do basic aggregation in advanced search?</h2>
+        <p>Basic aggregation is the simplest grouping query pattern: for column foo, display the smallest, largest, sum,
+            average or some other statistic of column bar values:
+            <pre>
+                SELECT foo, MIN(bar) AS bar
+                FROM tbl
+                GROUP BY foo;</pre>
+        Instead of use MIN() for minimum, you can also use MAX() for largest,
+        SUM() for sum, AVG() for average.
+        </p>
+        {{--
+        <h2></h2>
+        <p></p>
+        --}}
     </div>
 @endsection
 
