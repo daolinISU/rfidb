@@ -35,7 +35,7 @@
                 <a href="mailto:dlcheng@iastate.edu">dlcheng@iastate.edu</a>
             </div>
         </div>
-        <div class="row">
+        {{--<div class="row">
             <table summary="RFI Project" border="0" cellpadding="10" width="100%">
                 <tbody>
                 <tr>
@@ -73,7 +73,7 @@
                 </tr>
                 </tbody>
             </table>
-        </div>
+        </div>--}}
     </div>
 
 @endsection

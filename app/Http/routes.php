@@ -9,13 +9,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', 'PagesController@index');
+Route::get('/', ['middleware' => ['auth'], 'uses' =>'PagesController@index']);
 Route::get('wait', 'PagesController@notdone');
 
-Route::get('genotyping', 'PagesController@genotyping');
+/*Route::get('genotyping', 'PagesController@genotyping');
 Route::get('carcass', 'PagesController@carcass');
 Route::get('carcassForm', 'PagesController@carcassForm');
-Route::post('carcassQuery', 'PagesController@carcassQuery');
+Route::post('carcassQuery', 'PagesController@carcassQuery');*/
 
 
 Route::get('advanceQueryForm', ['middleware' => 'auth', 'uses' => 'PagesController@advanceQueryForm']);
@@ -67,7 +67,7 @@ Route::post('user/{id}/edit', ['middleware' => ['admin'], 'uses' => 'Auth\UserCo
 Route::get('user/create', ['middleware' => ['admin'], 'uses' => 'Auth\UserController@newUser']);
 // Route::post('user/create', ['middleware' => ['admin'], 'uses' => 'Auth\UserController@createNewUser']);
 
-Route::post('user/create', 'Auth\UserController@createNewUser');
+Route::post('user/create', ['middleware' => ['admin'], 'uses' => 'Auth\UserController@createNewUser']);
 
 
 
@@ -80,7 +80,7 @@ Route::post('browseTable', ['middleware' => ['auth'], 'uses' => 'PagesController
 Route::post('browseResult', ['middleware' => ['auth'], 'uses' => 'PagesController@getResult']);
 
 // prf description, not shown
-Route::get('pdf', function(){
+/*Route::get('pdf', function(){
     $filename = '/../resources/pdf/tables.pdf';
     $path = storage_path().DIRECTORY_SEPARATOR.$filename;
 
@@ -88,24 +88,24 @@ Route::get('pdf', function(){
         'Content-Type' => 'application/pdf',
         'Content-Disposition' => 'inline; '.$filename,
     ]);
-});
+});*/
 
 
-Route::get('contact', function(){
+Route::get('contact', ['middleware' => ['auth'], 'uses' => function(){
     return view('pages.contact');
-});
+}]);
 
-Route::get('tables', function(){
+Route::get('tables', ['middleware' => ['auth'], 'uses' => function(){
     return view('pages.tables');
-});
+}]);
 
-Route::get('faq', function(){
+Route::get('faq', ['middleware' => ['auth'], 'uses' =>function(){
     return view('pages.faq');
-});
+}]);
 
-Route::get('overview', function(){
+Route::get('overview', ['middleware' => ['auth'], 'uses' =>function(){
     return view('pages.overview');
-});
+}]);
 
 
 
