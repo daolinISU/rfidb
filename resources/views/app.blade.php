@@ -37,7 +37,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="/overview">Overview</a></li>
+                {{--<li><a href="/overview">Overview</a></li>--}}
                 <li><a href="/browseTable">Search</a></li>
                 <li><a href="/advancedSearch">Advanced Search</a></li>
                 <li><a href="/faq">Frequently Asked Questions</a></li>

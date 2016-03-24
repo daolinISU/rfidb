@@ -9,7 +9,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', ['middleware' => ['auth'], 'uses' =>'PagesController@index']);
+//Route::get('/', ['middleware' => ['auth'], 'uses' =>'PagesController@index']);
 Route::get('wait', 'PagesController@notdone');
 
 /*Route::get('genotyping', 'PagesController@genotyping');
@@ -103,7 +103,7 @@ Route::get('faq', ['middleware' => ['auth'], 'uses' =>function(){
     return view('pages.faq');
 }]);
 
-Route::get('overview', ['middleware' => ['auth'], 'uses' =>function(){
+Route::get('/', ['middleware' => ['auth'], 'uses' =>function(){
     return view('pages.overview');
 }]);
 
