@@ -21,7 +21,7 @@
             <li>SQL is a standard language for accessing databases.
                 There are a lot of resouces on internet, most of them are free.
                 Here is one of them. <a href="http://www.w3schools.com/sql/">http://www.w3schools.com/sql/</a></li>
-            <li>We also have some common query in <a href="/faq">FAQ</a>.</li>
+            <li>We also have some example queries in <a href="/faq">FAQ</a>.</li>
         </ol>
     </div>
 
@@ -30,7 +30,7 @@
 
 
     <div class="form-group">
-        <div><h3>MySQL script</h3></div>
+        <div><h3>MySQL query</h3></div>
         <br>
         {!! Form::textarea('sqlScript',null,
             array('required'=>'required',

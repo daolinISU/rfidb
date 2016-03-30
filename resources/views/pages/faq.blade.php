@@ -131,27 +131,37 @@
         <h2>What if basic search does not have results I need?</h2>
         <p>You can run your own SQL script in <a href="/advancedSearch">Advanced Search</a>.</p>
 
-        <h2>How do I get maximum value of a column?</h2>
-        <p>In advanced search page, input:
-        <pre>
-            SELECT MAX(attribut_name) FROM table_name;</pre>
-        "attribut_name" is the column name, "table_name" is the table you need.
-        </p>
+        <h2>MySQL by examples</h2>
+        <p>Below are some beginner examples,
+            MySQL syntax is displayed in <span style="color: blue">blue</span>,
+            comments displayed in <span style="color: red">blue</span>.
+        <ol>
+            <li>
+                List all the rows of the specific columns
+            </li><pre style="color:blue">SELECT column1Name, column2Name <font color="red">/* multiple columns can be separated by comma */</font>
+FROM table_name;</pre>
+            <li>
+                List all the rows of ALL columns
+            </li><pre style="color:blue">SELECT * <font color="red">-- "*" is a wildcard denoting all columns </font>
+FROM table_name;</pre>
+            <li>
+                List rows that meet the specified criteria in WHERE clause
+            </li><pre style="color:blue">SELECT *
+FROM table_name
+WHERE column1Name > 200;<font color="red">-- "column1Name > 200" can be replaced by other criteria</font></pre>
+            <li>
+                List maximum value of a column
+            </li><pre style="color:blue">SELECT MAX(column1Name)
+FROM table_name;<font color="red">-- "MAX(column1Name)" will display max value in that column</font></pre>
+            <li>
+                Basic aggregation
+            </li><pre style="color:blue">SELECT column1Name, MAX(column2Name) as foo<font color="red">-- max value will has a column name "foo"</font>
+FROM table_name
+GROUP BY column1Name;<font color="red">-- use GROUP BY to group values from a column,
+                    and, if you wish, perform calculations on that column.
+                    You can use COUNT, SUM, AVG, etc., functions on the grouped column. </font></pre>
 
-        <h2>How do I do basic aggregation in advanced search?</h2>
-        <p>Basic aggregation is the simplest grouping query pattern: for column foo, display the smallest, largest, sum,
-            average or some other statistic of column bar values:
-            <pre>
-                SELECT foo, MIN(bar) AS bar
-                FROM tbl
-                GROUP BY foo;</pre>
-        Instead of use MIN() for minimum, you can also use MAX() for largest,
-        SUM() for sum, AVG() for average.
-        </p>
-        {{--
-        <h2></h2>
-        <p></p>
-        --}}
+        </ol>
     </div>
 @endsection
 
