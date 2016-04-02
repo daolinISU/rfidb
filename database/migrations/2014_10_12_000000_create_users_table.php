@@ -12,7 +12,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        /*Schema::create(
+        Schema::create(
             'users',
             function (Blueprint $table) {
                 $table->increments('id');
@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
                 $table->tinyInteger('status')->default(0);
                 $table->rememberToken();
                 $table->timestamps();
-        });*/
+        });
     }
 
     /**
@@ -37,6 +37,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-//        Schema::drop('users');
+        Schema::drop('users');
     }
 }
