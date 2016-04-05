@@ -1,4 +1,5 @@
-@extends('app')
+t
+:@extends('app')
 
 @section('content')
     <script type="text/javascript">
@@ -123,7 +124,7 @@
         <p>Please click expand/collapse to view/hide what is in the table</p>
 
         <h2>Table: id</h2>
-        <p></p>
+        <p>Unique IDs for each pig</p>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -618,7 +619,7 @@
             </tr>
             </tbody>
         </table>
-        <h2>Table: dam_mate</h2>
+        <h2>Table: sow</h2>
         <p></p>
         <table class="table table-striped">
             <thead>
