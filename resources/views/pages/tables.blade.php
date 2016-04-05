@@ -381,6 +381,7 @@ t
             </tr>
             </thead>
             <tbody>
+
             <tr>
                 <td>idpig</td>
                 <td>new pig id, a combination of parity, generation and ear notch (since generation 0, in the format of one digit for parity, two digits for generation,six digits for ear notch)</td>
@@ -1182,7 +1183,7 @@ t
             </tr>
             </tbody>
         </table>
-        <h2>Table: sire</h2>
+        <h2>Table: ==> sire info.txt <==</h2>
         <p></p>
         <table class="table table-striped">
             <thead>
