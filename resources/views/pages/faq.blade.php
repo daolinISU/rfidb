@@ -140,7 +140,7 @@
                 List all the rows of the specific columns
             </li><pre style="color:blue">SELECT column1Name, column2Name <font color="red">/* multiple columns can be separated by comma */</font>
 FROM table_name;</pre>
-            <p>A real life example here.</p>
+            <p>A real life example here. link: </p>
             <li>
                 List all the rows of ALL columns
             </li><pre style="color:blue">SELECT * <font color="red">-- "*" is a wildcard denoting all columns </font>
