@@ -195,8 +195,7 @@ GROUP BY column1Name;<font color="red">-- use GROUP BY to group values from a co
             <pre style="color:blue">SELECT * <font color="red">/* you can also specify columns by listing
                     their name as "rfi.onwt", separated by comma */</font>
 FROM rfi <font color="red">/* table you want to join */</font>
-INNER JOIN id ON rfi.idpig = id.idpig; <font color="red">/* idpig from table "id" is the column we join on
-                    */</font></pre>
+INNER JOIN id ON rfi.idpig = id.idpig; <font color="red">/* idpig from table "id" is the column we join on*/</font></pre>
             <li>
                 add all data from the igf table to data from the id table:
                 create a file with a record for every pig in the id table, adding every data item from the igf table
@@ -207,8 +206,7 @@ INNER JOIN id ON rfi.idpig = id.idpig; <font color="red">/* idpig from table "id
             <pre style="color:blue">SELECT * <font color="red">/* you can also specify columns by listing
                     their name as "id.idpig", separated by comma */</font>
 FROM id <font color="red">/* table you want to join */</font>
-LEFT JOIN igf ON igf.idpig = id.idpig; <font color="red">/* idpig from table "id" is the column we join on
-                    */</font></pre>
+LEFT JOIN igf ON igf.idpig = id.idpig; <font color="red">/* idpig from table "id" is the column we join on*/</font></pre>
             <li>
                 Merging data from the sow table into the id table:
                 create a file with the following information for every pig in the id file<br>

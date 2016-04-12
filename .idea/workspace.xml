@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6998a961-5bd9-46e2-94b3-e860b3a9cf10" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/faq.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/faq.blade.php" />
     </list>
     <ignored path="rfidb.iws" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="faq.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/faq.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51153326">
-              <caret line="226" column="121" selection-start-line="226" selection-start-column="121" selection-end-line="226" selection-end-column="121" />
+            <state vertical-scroll-proportion="1.4070556">
+              <caret line="197" column="106" selection-start-line="197" selection-start-column="106" selection-end-line="197" selection-end-column="106" />
               <folding>
                 <element signature="e#7855#7874#0#HTML" expanded="true" />
                 <element signature="e#7928#7946#0#HTML" expanded="true" />
@@ -215,7 +214,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="936" extended-state="7" />
+    <frame x="-8" y="-8" width="1456" height="936" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -289,8 +288,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/faq.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51153326">
-          <caret line="226" column="121" selection-start-line="226" selection-start-column="121" selection-end-line="226" selection-end-column="121" />
+        <state vertical-scroll-proportion="1.4070556">
+          <caret line="197" column="106" selection-start-line="197" selection-start-column="106" selection-end-line="197" selection-end-column="106" />
           <folding>
             <element signature="e#7855#7874#0#HTML" expanded="true" />
             <element signature="e#7928#7946#0#HTML" expanded="true" />
