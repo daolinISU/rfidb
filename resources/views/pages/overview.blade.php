@@ -28,12 +28,13 @@
 
             <p>&nbsp;</p>
 
-            <h3>To see what is in this database, click
-                <a href="/tables"
-                   onclick="window.open('/tables', 'Popup', 'resizable=1,scrollbars=yes,width=1000,height=800'); return false;" >
-                    here
-                </a>
-            </h3>
+            <h3>To query this database or view other content, please <a href="/auth/login" class="btn btn-primary"> login
+                </a> first. Or <a href="/auth/register" class="btn btn-primary">register</a> if you do not have an account.</h3>
+            <p>All Residual Feed Intake data is restricted to group members and cooperators.
+                The registration request needs to be viewed and approved by our administrator first.
+                <br>
+                If you have any question, contact our administrator(<a href="mailto:rfidbadmin@iastate.edu">rfidbadmin@iastate.edu</a>).
+            </p>
             <p>&nbsp;</p>
             <h3>For more information about this project please visit <a href="http://www.swinefeedefficiency.com">
                     www.swinefeedefficiency.com</a></h3>

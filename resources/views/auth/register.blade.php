@@ -76,7 +76,14 @@
                                     <button type="submit" class="btn btn-primary">
                                         Register
                                     </button>
+                                    <br><br>
+                                    <p>All Residual Feed Intake data is restricted to group members and cooperators.
+                                        The registration request needs to be viewed and approved by our administrator first.
+                                        <br>
+                                        If you have any question, contact our administrator(<a href="mailto:rfidbadmin@iastate.edu">rfidbadmin@iastate.edu</a>).
+                                    </p>
                                 </div>
+
                             </div>
                         </form>
                     </div>

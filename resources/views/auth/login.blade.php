@@ -53,6 +53,12 @@
                                     <a href="{{ URL::to('password/email') }}">Forgot Your Password?</a>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    Do not have an account?&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="/auth/register" class="btn btn-primary">Register</a>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -25,14 +25,23 @@
                 <a href="mailto:cktuggle@iastate.edu">cktuggle@iastate.edu</a>
             </div>
         </div>
+        {{--<div class="row">--}}
+            {{--<div class="col-sm-6">--}}
+                {{--<br><br>--}}
+                {{--<a href="">Daolin Cheng</a><br>--}}
+                {{--Developer<br>--}}
+                {{--Computer Science<br>--}}
+                {{--B107E Attanasoff Hall<br>--}}
+                {{--<a href="mailto:dlcheng@iastate.edu">dlcheng@iastate.edu</a>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+
         <div class="row">
+<br>
+            <h3>Contact our administrator for question about website, registration and more</h3>
             <div class="col-sm-6">
-                <br><br>
-                <a href="">Daolin Cheng</a><br>
-                Developer<br>
-                Computer Science<br>
-                B107E Attanasoff Hall<br>
-                <a href="mailto:dlcheng@iastate.edu">dlcheng@iastate.edu</a>
+                Administrator<br>
+                <a href="mailto:rfidbadmin@iastate.edu">rfidbadmin@iastate.edu</a>
             </div>
         </div>
         {{--<div class="row">

@@ -103,9 +103,9 @@ Route::get('faq', ['middleware' => ['auth'], 'uses' =>function(){
     return view('pages.faq');
 }]);
 
-Route::get('/', ['middleware' => ['auth'], 'uses' =>function(){
+Route::get('/', function(){
     return view('pages.overview');
-}]);
+});
 
 
 
