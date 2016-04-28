@@ -35,7 +35,7 @@
                 <br>
                 If you have any question, contact our administrator(<a href="mailto:rfidbadmin@iastate.edu">rfidbadmin@iastate.edu</a>).
             </p>
-            <p>&nbsp;</p>
+            {{--<p>&nbsp;</p>--}}
             <h3>For more information about this project please visit <a href="http://www.swinefeedefficiency.com">
                     www.swinefeedefficiency.com</a></h3>
 
